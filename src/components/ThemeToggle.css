@@ -1,0 +1,59 @@
+.theme-toggle {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.navbar--scrolled .theme-toggle {
+    background: rgba(26, 86, 219, 0.08);
+    color: var(--color-text-muted);
+}
+
+.theme-toggle:hover {
+    background: var(--color-primary);
+    color: #fff;
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(26, 86, 219, 0.3);
+}
+
+.theme-toggle__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: theme-fade-in 0.3s ease;
+}
+
+@keyframes theme-fade-in {
+    from {
+        opacity: 0;
+        transform: rotate(-90deg) scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+}
+
+/* Mobile menu version */
+.navbar__mobile-menu .theme-toggle {
+    background: var(--color-bg);
+    color: var(--color-text-muted);
+    width: 42px;
+    height: 42px;
+}
+
+[data-theme="dark"] .navbar__mobile-menu .theme-toggle {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.7);
+}

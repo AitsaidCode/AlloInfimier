@@ -1,0 +1,288 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 0.85rem 0;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.navbar--scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 2px 20px rgba(26, 86, 219, 0.1);
+}
+
+.navbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+/* Logo */
+.navbar__logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.navbar__logo-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Desktop Links */
+.navbar__links {
+    display: none;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+@media (min-width: 900px) {
+    .navbar__links {
+        display: flex;
+    }
+}
+
+.navbar__link {
+    padding: 0.5rem 0.9rem;
+    border-radius: var(--radius-full);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #fff;
+    transition: all 0.2s;
+}
+
+.navbar--scrolled .navbar__link {
+    color: var(--color-text);
+}
+
+.navbar__link:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.navbar--scrolled .navbar__link:hover {
+    background: rgba(26, 86, 219, 0.08);
+    color: var(--color-primary);
+}
+
+.navbar__link--active {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: #fff !important;
+    font-weight: 600;
+}
+
+.navbar--scrolled .navbar__link--active {
+    background: rgba(26, 86, 219, 0.12) !important;
+    color: var(--color-primary) !important;
+}
+
+/* Actions */
+.navbar__actions {
+    display: none;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (min-width: 900px) {
+    .navbar__actions {
+        display: flex;
+    }
+}
+
+/* Language Switcher */
+.navbar__lang-switcher {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-full);
+    padding: 3px;
+    gap: 2px;
+}
+
+.navbar--scrolled .navbar__lang-switcher {
+    background: rgba(26, 86, 219, 0.08);
+}
+
+.lang-btn {
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
+}
+
+.navbar--scrolled .lang-btn {
+    color: var(--color-text-muted);
+}
+
+.lang-btn--active {
+    background: var(--color-primary);
+    color: #fff !important;
+    box-shadow: 0 2px 8px rgba(26, 86, 219, 0.3);
+}
+
+.navbar__cta {
+    font-size: 0.9rem !important;
+}
+
+/* Hamburger */
+.navbar__hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.navbar--scrolled .navbar__hamburger {
+    background: rgba(26, 86, 219, 0.08);
+    color: var(--color-primary);
+}
+
+@media (min-width: 900px) {
+    .navbar__hamburger {
+        display: none;
+    }
+}
+
+/* Mobile Menu */
+.navbar__mobile-menu {
+    background: var(--color-surface);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    animation: slide-down 0.2s ease;
+    border-top: 1px solid var(--color-border);
+}
+
+.navbar__mobile-link {
+    padding: 0.85rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text);
+    transition: all 0.2s;
+}
+
+.navbar__mobile-link:hover {
+    background: var(--color-bg);
+    color: var(--color-primary);
+}
+
+.navbar__mobile-link--active {
+    background: rgba(26, 86, 219, 0.08);
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.navbar__mobile-langs {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.navbar__mobile-langs .lang-btn {
+    color: var(--color-text-muted);
+    background: var(--color-bg);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+}
+
+.navbar__mobile-langs .lang-btn--active {
+    background: var(--color-primary);
+    color: #fff !important;
+}
+
+/* Mobile Bottom Row (langs + theme toggle) */
+.navbar__mobile-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+/* ─── Dark Mode ─────────────────────── */
+[data-theme="dark"] .navbar--scrolled {
+    background: rgba(15, 23, 42, 0.95);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .navbar--scrolled .navbar__link {
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .navbar--scrolled .navbar__link:hover {
+    background: rgba(59, 130, 246, 0.12);
+    color: var(--color-primary-light);
+}
+
+[data-theme="dark"] .navbar--scrolled .navbar__link--active {
+    background: rgba(59, 130, 246, 0.18) !important;
+    color: var(--color-primary-light) !important;
+}
+
+[data-theme="dark"] .navbar--scrolled .navbar__lang-switcher {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .navbar--scrolled .lang-btn {
+    color: var(--color-text-muted);
+}
+
+[data-theme="dark"] .navbar--scrolled .navbar__hamburger {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .navbar__mobile-menu {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+}
+
+[data-theme="dark"] .navbar__mobile-link {
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .navbar__mobile-link:hover {
+    background: rgba(59, 130, 246, 0.08);
+    color: var(--color-primary-light);
+}
+
+[data-theme="dark"] .navbar__mobile-link--active {
+    background: rgba(59, 130, 246, 0.12);
+    color: var(--color-primary-light);
+}
+
+[data-theme="dark"] .navbar__mobile-langs .lang-btn {
+    color: var(--color-text-muted);
+    background: rgba(255, 255, 255, 0.06);
+}

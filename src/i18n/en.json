@@ -1,0 +1,418 @@
+{
+    "nav": {
+        "home": "Home",
+        "services": "Services",
+        "request": "Request a Nurse",
+        "about": "About",
+        "contact": "Contact"
+    },
+    "hero": {
+        "title": "Allo Infirmier – Health Comes to You",
+        "subtitle": "Allo Infirmier is a home care coordination agency based in Rabat and Salé. We facilitate access to care by connecting patients, families and licensed nurses, ensuring fast, reliable and secure support, right at your doorstep.",
+        "cta_primary": "Request a Nurse Now",
+        "cta_secondary": "Call Now",
+        "badge": "Available 7 days a week",
+        "stats_nurses": "Qualified Nurses",
+        "stats_cities": "Cities Served",
+        "stats_support": "Customer Support",
+        "trust_certified": "Licensed Nurses",
+        "trust_fast": "Rapid Response",
+        "trust_multilingual": "FR · EN · AR",
+        "whatsapp_response": "Response in under 15min"
+    },
+    "services": {
+        "title": "Our Services",
+        "subtitle": "Professional care coordinated and delivered to your home",
+        "tag": "What We Offer",
+        "cta": "Learn more",
+        "items": {
+            "wound": {
+                "title": "Wound Care",
+                "desc": "Dressings, wound healing and post-operative wound monitoring at home."
+            },
+            "injections": {
+                "title": "Injections & IV",
+                "desc": "Administration of subcutaneous, intramuscular and intravenous injections."
+            },
+            "surgery": {
+                "title": "Post-Surgery Follow-up",
+                "desc": "Monitoring and convalescence care after a surgical procedure."
+            },
+            "elderly": {
+                "title": "Elderly Care",
+                "desc": "Personalized support for seniors requiring medical assistance at home."
+            },
+            "accompany": {
+                "title": "Medical Accompaniment",
+                "desc": "Transport and accompaniment to consultations, examinations or hospitalizations."
+            },
+            "concierge": {
+                "title": "Medical Concierge",
+                "desc": "Complete coordination of your medical needs: doctors, specialists, laboratories."
+            }
+        }
+    },
+    "why": {
+        "title": "Why Choose Us?",
+        "subtitle": "Our commitment: professionalism, responsiveness and transparency",
+        "tag": "Our Difference",
+        "items": {
+            "network": {
+                "title": "Experienced Nurse Network",
+                "desc": "A network of certified and verified nurses, available quickly."
+            },
+            "response": {
+                "title": "Rapid Response",
+                "desc": "Coordinated intervention within 2 hours depending on availability."
+            },
+            "multilingual": {
+                "title": "Multilingual Support",
+                "desc": "Service available in French, English and Arabic."
+            },
+            "coordination": {
+                "title": "Professional Coordination",
+                "desc": "A dedicated contact person who manages everything from A to Z for you."
+            },
+            "pricing": {
+                "title": "Transparent Pricing",
+                "desc": "Clear prices communicated before any intervention, no surprises."
+            }
+        }
+    },
+    "how": {
+        "title": "How It Works",
+        "subtitle": "A simple and reassuring 3-step process",
+        "tag": "Our Process",
+        "steps": {
+            "step1": {
+                "title": "Contact Us",
+                "desc": "Call us, send a WhatsApp message or fill in our online form."
+            },
+            "step2": {
+                "title": "We Assign a Nurse",
+                "desc": "We select the most suitable nurse for your needs and confirm the intervention."
+            },
+            "step3": {
+                "title": "Care at Home",
+                "desc": "The nurse comes to your home and provides care in your comfort."
+            }
+        }
+    },
+    "testimonials": {
+        "title": "They Trust Us",
+        "subtitle": "Patient satisfaction is our top priority",
+        "tag": "Testimonials",
+        "items": [
+            {
+                "name": "Fatima B.",
+                "role": "Patient, Rabat",
+                "text": "Impeccable and professional service. The nurse arrived quickly and was very attentive. I highly recommend Allo Infirmier!"
+            },
+            {
+                "name": "James R.",
+                "role": "Expat, Agdal",
+                "text": "As an expat, finding reliable home nursing was challenging. Allo Infirmier made it seamless with English-speaking coordination. Highly recommended!"
+            },
+            {
+                "name": "Mohammed A.",
+                "role": "Family, Salé",
+                "text": "We needed a nurse for our father after surgery. The service was excellent and very responsive. Thank you so much!"
+            }
+        ]
+    },
+    "footer": {
+        "description": "Home nursing coordination agency in Rabat & Salé. We connect patients with qualified nurses.",
+        "services_title": "Services",
+        "contact_title": "Contact",
+        "areas_title": "Service Areas",
+        "legal_title": "Legal",
+        "areas": "Rabat · Salé · Agdal · Hay Riad · Témara · Skhirat",
+        "legal": "Legal Notice",
+        "privacy": "Privacy Policy",
+        "copyright": "© {{year}} Allo Infirmier. All rights reserved.",
+        "phone": "Phone",
+        "email": "Email",
+        "whatsapp": "WhatsApp",
+        "cta_title": "Need a home nurse?",
+        "cta_subtitle": "Quick and professional response 7 days a week"
+    },
+    "request": {
+        "title": "Request a Nurse",
+        "subtitle": "Fill in this form and we will contact you within 30 minutes",
+        "tag": "Quick Assistance",
+        "fields": {
+            "name": "Full Name",
+            "phone": "Phone",
+            "email": "Email",
+            "address": "Full Address",
+            "service": "Type of Care",
+            "service_placeholder": "Select a service",
+            "time": "Preferred Time",
+            "time_options": {
+                "morning": "Morning (8am-12pm)",
+                "afternoon": "Afternoon (12pm-5pm)",
+                "evening": "Evening (5pm-9pm)",
+                "urgent": "Urgent (as soon as possible)"
+            },
+            "message": "Additional Message",
+            "message_placeholder": "Describe your needs, health condition, relevant information..."
+        },
+        "service_options": {
+            "wound": "Wound Care",
+            "injections": "Injections & IV",
+            "surgery": "Post-Surgery Follow-up",
+            "elderly": "Elderly Care",
+            "accompany": "Medical Accompaniment",
+            "concierge": "Medical Concierge",
+            "other": "Other"
+        },
+        "submit": "Submit Request",
+        "submitting": "Submitting...",
+        "success_title": "Request Sent!",
+        "success_msg": "We have received your request and will contact you very soon.",
+        "error_msg": "An error occurred. Please try again or call us directly.",
+        "validation": {
+            "name_required": "Name is required",
+            "phone_required": "Phone is required",
+            "email_required": "Email is required",
+            "email_invalid": "Invalid email",
+            "address_required": "Address is required",
+            "service_required": "Please select a service"
+        }
+    },
+    "about": {
+        "title": "About Allo Infirmier",
+        "subtitle": "Our mission: making home nursing care accessible",
+        "tag": "Our Story",
+        "mission_title": "Our Mission",
+        "mission_text": "Allo Infirmier is a home nursing coordination agency based in Rabat and Salé. We do not provide medical acts directly — we coordinate and connect patients with licensed and certified nurses.",
+        "vision_title": "Our Vision",
+        "vision_text": "To become the go-to reference for home care coordination in Morocco, offering a premium, accessible and multilingual service to all families, expats and tourists.",
+        "network_title": "Our Professional Network",
+        "network_text": "Our network consists exclusively of state-certified, verified and experienced nurses. Each practitioner is evaluated according to strict criteria of professionalism, punctuality and quality of care.",
+        "quality_title": "Quality & Safety Commitment",
+        "quality_text": "Patient safety is our absolute priority. All our practitioners follow current medical protocols and use sterile equipment. We provide follow-up after every intervention.",
+        "values": {
+            "trust": "Trust",
+            "professionalism": "Professionalism",
+            "reactivity": "Responsiveness",
+            "safety": "Safety"
+        }
+    },
+    "contact": {
+        "title": "Contact Us",
+        "subtitle": "Available 7 days a week for your needs",
+        "tag": "We're Here",
+        "phone_label": "Phone",
+        "whatsapp_label": "WhatsApp",
+        "email_label": "Email",
+        "hours_label": "Hours",
+        "hours": "Mon–Sun, 8:00am–9:00pm",
+        "address_label": "Area",
+        "address": "Rabat, Morocco",
+        "map_title": "Find Us",
+        "cta_call": "Call Now",
+        "cta_whatsapp": "Message on WhatsApp"
+    },
+    "notFound": {
+        "title": "Page Not Found",
+        "message": "Sorry, the page you're looking for doesn't exist or has been moved.",
+        "back": "Back to Home",
+        "suggestions_title": "Useful Pages",
+        "suggestions": {
+            "home": {
+                "title": "Home",
+                "desc": "Back to the homepage"
+            },
+            "services": {
+                "title": "Services",
+                "desc": "Discover our home care services"
+            },
+            "contact": {
+                "title": "Contact",
+                "desc": "Need help? Get in touch"
+            },
+            "request": {
+                "title": "Request a Nurse",
+                "desc": "Submit a care request"
+            }
+        }
+    },
+    "cta_banner": {
+        "title": "Need a home nurse?",
+        "subtitle": "Contact us now — we respond 7 days a week from 8am to 9pm."
+    },
+    "home_coverage": {
+        "tag": "Coverage Area",
+        "title": "We Serve Your Neighborhood",
+        "subtitle": "Our nurse network covers Rabat, Salé and surrounding cities",
+        "areas": {
+            "rabat": {
+                "name": "Rabat",
+                "desc": "City center, Agdal, Hassan, Océan, Souissi"
+            },
+            "sale": {
+                "name": "Salé",
+                "desc": "Tabriquet, Bettana, Hay Salam, Sala Al Jadida"
+            },
+            "agdal": {
+                "name": "Agdal-Riyad",
+                "desc": "Residential quarter, embassies, clinics"
+            },
+            "hayriad": {
+                "name": "Hay Riad",
+                "desc": "Modern quarter, villas, residences"
+            },
+            "temara": {
+                "name": "Témara",
+                "desc": "Harhoura, city center, residential areas"
+            },
+            "skhirat": {
+                "name": "Skhirat",
+                "desc": "Beach, residential areas, surroundings"
+            }
+        }
+    },
+    "home_faq": {
+        "tag": "FAQ",
+        "title": "Your Questions, Our Answers",
+        "subtitle": "Everything you need to know before using our services",
+        "items": [
+            {
+                "q": "Are your nurses certified?",
+                "a": "Yes, all our nurses are state-certified, verified and selected according to strict competence and professionalism criteria."
+            },
+            {
+                "q": "What are your rates?",
+                "a": "Our rates vary by type of care. We always communicate the price before intervention, with no hidden fees. Contact us for a free quote."
+            },
+            {
+                "q": "How quickly can a nurse arrive?",
+                "a": "We coordinate an intervention within 2 hours on average. For emergencies, we do our best to respond as quickly as possible."
+            },
+            {
+                "q": "Do you offer weekend service?",
+                "a": "Yes, our service is available 7 days a week, including holidays, from 8am to 9pm."
+            }
+        ]
+    },
+    "services_guarantee": {
+        "tag": "Our Commitment",
+        "title": "Quality Care Guaranteed",
+        "subtitle": "Every intervention is backed by our quality commitments",
+        "items": {
+            "certified": {
+                "title": "Certified Nurses",
+                "desc": "Every professional in our network is state-certified, verified and regularly evaluated."
+            },
+            "sterile": {
+                "title": "Sterile Equipment",
+                "desc": "All equipment used is sterile and compliant with current health standards."
+            },
+            "followup": {
+                "title": "Post-Visit Follow-up",
+                "desc": "We provide follow-up after every intervention to ensure your satisfaction and safety."
+            }
+        }
+    },
+    "services_faq": {
+        "tag": "FAQ",
+        "title": "Questions About Our Services",
+        "subtitle": "Answers to the most common questions about our services",
+        "items": [
+            {
+                "q": "Can I request the same nurse for regular follow-up?",
+                "a": "Yes, we do our best to ensure continuity of care with the same professional."
+            },
+            {
+                "q": "Do I need to provide medical supplies?",
+                "a": "No, our nurses bring all necessary supplies. If specific equipment is required, we'll inform you in advance."
+            },
+            {
+                "q": "Can I cancel or reschedule an appointment?",
+                "a": "Yes, you can cancel or reschedule free of charge up to 2 hours before the scheduled intervention."
+            }
+        ]
+    },
+    "about_milestones": {
+        "tag": "Our Journey",
+        "title": "Key Milestones in Our Growth",
+        "subtitle": "From idea to reality, discover our evolution",
+        "items": [
+            {
+                "year": "2020",
+                "title": "Allo Infirmier Founded",
+                "desc": "Launch of the home nursing coordination agency in Rabat."
+            },
+            {
+                "year": "2021",
+                "title": "50+ Partner Nurses",
+                "desc": "Built a network of over 50 certified and verified nurses."
+            },
+            {
+                "year": "2023",
+                "title": "Regional Expansion",
+                "desc": "Extended coverage to Salé, Témara, Skhirat and surrounding areas."
+            },
+            {
+                "year": "2025",
+                "title": "Digital Platform",
+                "desc": "Launched our online platform to simplify care requests."
+            }
+        ]
+    },
+    "about_cta": {
+        "title": "Ready to receive care at home?",
+        "subtitle": "Trust Allo Infirmier for professional, fast and secure care, delivered right to your doorstep."
+    },
+    "contact_areas": {
+        "tag": "Service Areas",
+        "title": "We Cover Your Area",
+        "subtitle": "Nurses available in the main areas of Rabat and Salé",
+        "items": {
+            "rabat": {
+                "name": "Rabat Center",
+                "desc": "Hassan, Medina, Océan, Yacoub El Mansour"
+            },
+            "agdal": {
+                "name": "Agdal-Riyad",
+                "desc": "Agdal, Souissi, embassies"
+            },
+            "sale": {
+                "name": "Salé",
+                "desc": "Tabriquet, Bettana, Sala Al Jadida"
+            },
+            "hayriad": {
+                "name": "Hay Riad",
+                "desc": "Hay Riad, administrative quarter"
+            },
+            "temara": {
+                "name": "Témara",
+                "desc": "Center, Harhoura, residential"
+            },
+            "skhirat": {
+                "name": "Skhirat",
+                "desc": "Beach, residential areas"
+            }
+        }
+    },
+    "contact_faq": {
+        "tag": "Quick Help",
+        "title": "Frequently Asked Questions",
+        "subtitle": "Quick answers to your questions",
+        "items": [
+            {
+                "q": "What is your response time?",
+                "a": "We respond within 15 minutes via WhatsApp and within 2 hours by email."
+            },
+            {
+                "q": "Do you serve areas outside Rabat and Salé?",
+                "a": "We cover Rabat, Salé, Agdal, Hay Riad, Témara and Skhirat. For other areas, contact us to check availability."
+            },
+            {
+                "q": "Is the first consultation free?",
+                "a": "Yes, the initial consultation by phone or WhatsApp is completely free and without obligation."
+            }
+        ]
+    }
+}

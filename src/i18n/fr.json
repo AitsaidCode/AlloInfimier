@@ -1,0 +1,418 @@
+{
+    "nav": {
+        "home": "Accueil",
+        "services": "Services",
+        "request": "Demander un infirmier",
+        "about": "À propos",
+        "contact": "Contact"
+    },
+    "hero": {
+        "title": "Allo Infirmier – La santé vient à vous",
+        "subtitle": "Allo Infirmier est une agence de coordination de soins à domicile basée à Rabat et Salé. Nous facilitons l'accès aux soins en mettant en relation patients, familles et infirmiers diplômés, afin d'assurer une prise en charge rapide, fiable et sécurisée, directement chez vous.",
+        "cta_primary": "Demander un infirmier",
+        "cta_secondary": "Appeler maintenant",
+        "badge": "Service disponible 7j/7",
+        "stats_nurses": "Infirmiers qualifiés",
+        "stats_cities": "Villes desservies",
+        "stats_support": "Support client",
+        "trust_certified": "Infirmiers diplômés",
+        "trust_fast": "Intervention rapide",
+        "trust_multilingual": "FR · EN · AR",
+        "whatsapp_response": "Réponse en moins de 15min"
+    },
+    "services": {
+        "title": "Nos Services",
+        "subtitle": "Des soins professionnels coordonnés directement chez vous",
+        "tag": "Ce que nous proposons",
+        "cta": "En savoir plus",
+        "items": {
+            "wound": {
+                "title": "Soins de plaies",
+                "desc": "Pansements, cicatrisation et suivi des plaies postopératoires à domicile."
+            },
+            "injections": {
+                "title": "Injections & Perfusions",
+                "desc": "Administration d'injections sous-cutanées, intramusculaires et intraveineuses."
+            },
+            "surgery": {
+                "title": "Suivi post-opératoire",
+                "desc": "Surveillance et soins de convalescence après une intervention chirurgicale."
+            },
+            "elderly": {
+                "title": "Soins aux personnes âgées",
+                "desc": "Accompagnement personnalisé pour les seniors nécessitant une assistance médicale."
+            },
+            "accompany": {
+                "title": "Accompagnement médical",
+                "desc": "Transport et accompagnement lors de consultations, examens ou hospitalisations."
+            },
+            "concierge": {
+                "title": "Conciergerie médicale",
+                "desc": "Coordination complète de vos besoins médicaux : médecins, spécialistes, laboratoires."
+            }
+        }
+    },
+    "why": {
+        "title": "Pourquoi nous choisir ?",
+        "subtitle": "Notre engagement : professionnalisme, réactivité et transparence",
+        "tag": "Notre différence",
+        "items": {
+            "network": {
+                "title": "Réseau d'infirmiers expérimentés",
+                "desc": "Un réseau d'infirmiers diplômés et vérifiés, disponibles rapidement."
+            },
+            "response": {
+                "title": "Réponse rapide",
+                "desc": "Intervention coordonnée en moins de 2 heures selon disponibilité."
+            },
+            "multilingual": {
+                "title": "Support multilingue",
+                "desc": "Service disponible en français, anglais et arabe."
+            },
+            "coordination": {
+                "title": "Coordination professionnelle",
+                "desc": "Un interlocuteur dédié qui gère tout de A à Z pour vous."
+            },
+            "pricing": {
+                "title": "Tarification transparente",
+                "desc": "Prix clairs communiqués avant toute intervention, sans surprise."
+            }
+        }
+    },
+    "how": {
+        "title": "Comment ça marche ?",
+        "subtitle": "Un processus simple et rassurant en 3 étapes",
+        "tag": "Notre processus",
+        "steps": {
+            "step1": {
+                "title": "Contactez-nous",
+                "desc": "Appelez-nous, envoyez un WhatsApp ou remplissez notre formulaire en ligne."
+            },
+            "step2": {
+                "title": "Nous assignons un infirmier",
+                "desc": "Nous sélectionnons l'infirmier le plus adapté à votre besoin et nous vous confirmons l'intervention."
+            },
+            "step3": {
+                "title": "Soins à domicile",
+                "desc": "L'infirmier se déplace chez vous et dispense les soins dans le confort de votre domicile."
+            }
+        }
+    },
+    "testimonials": {
+        "title": "Ils nous font confiance",
+        "subtitle": "La satisfaction de nos patients est notre priorité",
+        "tag": "Témoignages",
+        "items": [
+            {
+                "name": "Fatima B.",
+                "role": "Patiente, Rabat",
+                "text": "Service impeccable et très professionnel. L'infirmier est arrivé rapidement et a été très attentionné. Je recommande vivement Allo Infirmier !"
+            },
+            {
+                "name": "James R.",
+                "role": "Expatrié, Agdal",
+                "text": "As an expat, finding reliable home nursing was challenging. Allo Infirmier made it seamless with English-speaking coordination. Highly recommended!"
+            },
+            {
+                "name": "Mohammed A.",
+                "role": "Famille, Salé",
+                "text": "لقد احتجنا إلى ممرضة لوالدنا بعد العملية الجراحية. الخدمة كانت ممتازة وسريعة الاستجابة. شكراً جزيلاً!"
+            }
+        ]
+    },
+    "footer": {
+        "description": "Agence de coordination de soins infirmiers à domicile à Rabat & Salé. Nous connectons les patients avec des infirmiers qualifiés.",
+        "services_title": "Services",
+        "contact_title": "Contact",
+        "areas_title": "Zones desservies",
+        "legal_title": "Légal",
+        "areas": "Rabat · Salé · Agdal · Hay Riad · Témara · Skhirat",
+        "legal": "Mentions légales",
+        "privacy": "Politique de confidentialité",
+        "copyright": "© {{year}} Allo Infirmier. Tous droits réservés.",
+        "phone": "Téléphone",
+        "email": "Email",
+        "whatsapp": "WhatsApp",
+        "cta_title": "Besoin d'un infirmier à domicile ?",
+        "cta_subtitle": "Réponse rapide et professionnelle 7j/7"
+    },
+    "request": {
+        "title": "Demander un infirmier",
+        "subtitle": "Remplissez ce formulaire et nous vous contacterons sous 30 minutes",
+        "tag": "Prise en charge rapide",
+        "fields": {
+            "name": "Nom complet",
+            "phone": "Téléphone",
+            "email": "Email",
+            "address": "Adresse complète",
+            "service": "Type de soin",
+            "service_placeholder": "Sélectionnez un service",
+            "time": "Moment préféré",
+            "time_options": {
+                "morning": "Matin (8h-12h)",
+                "afternoon": "Après-midi (12h-17h)",
+                "evening": "Soir (17h-21h)",
+                "urgent": "Urgence (dès que possible)"
+            },
+            "message": "Message complémentaire",
+            "message_placeholder": "Décrivez votre besoin, état de santé, informations utiles..."
+        },
+        "service_options": {
+            "wound": "Soins de plaies",
+            "injections": "Injections & Perfusions",
+            "surgery": "Suivi post-opératoire",
+            "elderly": "Soins aux personnes âgées",
+            "accompany": "Accompagnement médical",
+            "concierge": "Conciergerie médicale",
+            "other": "Autre"
+        },
+        "submit": "Envoyer ma demande",
+        "submitting": "Envoi en cours...",
+        "success_title": "Demande envoyée !",
+        "success_msg": "Nous avons bien reçu votre demande et vous contacterons très prochainement.",
+        "error_msg": "Une erreur est survenue. Veuillez réessayer ou nous appeler directement.",
+        "validation": {
+            "name_required": "Le nom est requis",
+            "phone_required": "Le téléphone est requis",
+            "email_required": "L'email est requis",
+            "email_invalid": "Email invalide",
+            "address_required": "L'adresse est requise",
+            "service_required": "Veuillez sélectionner un service"
+        }
+    },
+    "about": {
+        "title": "À propos d'Allo Infirmier",
+        "subtitle": "Notre mission : rendre les soins infirmiers accessibles à domicile",
+        "tag": "Notre histoire",
+        "mission_title": "Notre mission",
+        "mission_text": "Allo Infirmier est une agence de coordination de soins infirmiers à domicile basée à Rabat et Salé. Nous ne dispensons pas directement les soins médicaux — nous coordonnons et mettons en relation les patients avec des infirmiers diplômés et certifiés.",
+        "vision_title": "Notre vision",
+        "vision_text": "Devenir la référence incontournable de la coordination de soins à domicile au Maroc, en offrant un service premium, accessible et multilingue à toutes les familles, expatriés et touristes.",
+        "network_title": "Notre réseau professionnel",
+        "network_text": "Notre réseau est composé exclusivement d'infirmiers diplômés d'État, vérifiés et expérimentés. Chaque praticien est évalué selon des critères stricts de professionnalisme, ponctualité et qualité de soins.",
+        "quality_title": "Engagement qualité & sécurité",
+        "quality_text": "La sécurité de nos patients est notre priorité absolue. Tous nos intervenants respectent les protocoles médicaux en vigueur et utilisent du matériel stérile. Nous assurons un suivi après chaque intervention.",
+        "values": {
+            "trust": "Confiance",
+            "professionalism": "Professionnalisme",
+            "reactivity": "Réactivité",
+            "safety": "Sécurité"
+        }
+    },
+    "contact": {
+        "title": "Contactez-nous",
+        "subtitle": "Disponibles 7j/7 pour répondre à vos besoins",
+        "tag": "Nous sommes là",
+        "phone_label": "Téléphone",
+        "whatsapp_label": "WhatsApp",
+        "email_label": "Email",
+        "hours_label": "Horaires",
+        "hours": "Lun–Dim, 8h00–21h00",
+        "address_label": "Adresse",
+        "address": "Rabat, Maroc",
+        "map_title": "Nous trouver",
+        "cta_call": "Appeler maintenant",
+        "cta_whatsapp": "Écrire sur WhatsApp"
+    },
+    "notFound": {
+        "title": "Page introuvable",
+        "message": "Désolé, la page que vous cherchez n'existe pas ou a été déplacée.",
+        "back": "Retour à l'accueil",
+        "suggestions_title": "Pages utiles",
+        "suggestions": {
+            "home": {
+                "title": "Accueil",
+                "desc": "Retour à la page d'accueil"
+            },
+            "services": {
+                "title": "Services",
+                "desc": "Découvrez nos soins à domicile"
+            },
+            "contact": {
+                "title": "Contact",
+                "desc": "Besoin d'aide ? Contactez-nous"
+            },
+            "request": {
+                "title": "Demander un infirmier",
+                "desc": "Faites une demande de soins"
+            }
+        }
+    },
+    "cta_banner": {
+        "title": "Besoin d'un infirmier à domicile ?",
+        "subtitle": "Contactez-nous dès maintenant — nous répondons 7j/7 de 8h à 21h."
+    },
+    "home_coverage": {
+        "tag": "Zone de couverture",
+        "title": "Nous intervenons près de chez vous",
+        "subtitle": "Notre réseau d'infirmiers couvre Rabat, Salé et les villes environnantes",
+        "areas": {
+            "rabat": {
+                "name": "Rabat",
+                "desc": "Centre-ville, Agdal, Hassan, Océan, Souissi"
+            },
+            "sale": {
+                "name": "Salé",
+                "desc": "Tabriquet, Bettana, Hay Salam, Sala Al Jadida"
+            },
+            "agdal": {
+                "name": "Agdal-Riyad",
+                "desc": "Quartier résidentiel, ambassades, cliniques"
+            },
+            "hayriad": {
+                "name": "Hay Riad",
+                "desc": "Quartier moderne, villas, résidences"
+            },
+            "temara": {
+                "name": "Témara",
+                "desc": "Harhoura, centre-ville, zones résidentielles"
+            },
+            "skhirat": {
+                "name": "Skhirat",
+                "desc": "Plage, zones résidentielles, environs"
+            }
+        }
+    },
+    "home_faq": {
+        "tag": "Questions fréquentes",
+        "title": "Vos questions, nos réponses",
+        "subtitle": "Tout ce que vous devez savoir avant de faire appel à nos services",
+        "items": [
+            {
+                "q": "Vos infirmiers sont-ils diplômés ?",
+                "a": "Oui, tous nos infirmiers sont diplômés d'État, vérifiés et sélectionnés selon des critères stricts de compétence et de professionnalisme."
+            },
+            {
+                "q": "Quels sont vos tarifs ?",
+                "a": "Nos tarifs varient selon le type de soin. Nous communiquons toujours le prix avant l'intervention, sans frais cachés. Contactez-nous pour un devis gratuit."
+            },
+            {
+                "q": "En combien de temps un infirmier peut-il intervenir ?",
+                "a": "Nous coordonnons une intervention en moins de 2 heures en moyenne. Pour les urgences, nous faisons notre maximum pour répondre dans les plus brefs délais."
+            },
+            {
+                "q": "Proposez-vous un service le week-end ?",
+                "a": "Oui, notre service est disponible 7 jours sur 7, y compris les jours fériés, de 8h à 21h."
+            }
+        ]
+    },
+    "services_guarantee": {
+        "tag": "Notre engagement",
+        "title": "Une qualité de soins garantie",
+        "subtitle": "Chaque intervention est encadrée par nos engagements qualité",
+        "items": {
+            "certified": {
+                "title": "Infirmiers certifiés",
+                "desc": "Chaque professionnel de notre réseau est diplômé d'État, vérifié et évalué régulièrement."
+            },
+            "sterile": {
+                "title": "Matériel stérile",
+                "desc": "Tout le matériel utilisé est stérile et conforme aux normes sanitaires en vigueur."
+            },
+            "followup": {
+                "title": "Suivi post-intervention",
+                "desc": "Nous assurons un suivi après chaque intervention pour garantir votre satisfaction et votre sécurité."
+            }
+        }
+    },
+    "services_faq": {
+        "tag": "Questions fréquentes",
+        "title": "Questions sur nos services",
+        "subtitle": "Réponses aux questions les plus courantes sur nos prestations",
+        "items": [
+            {
+                "q": "Peut-on choisir le même infirmier pour un suivi régulier ?",
+                "a": "Oui, nous faisons notre possible pour assurer la continuité des soins avec le même professionnel."
+            },
+            {
+                "q": "Faut-il fournir le matériel médical ?",
+                "a": "Non, nos infirmiers apportent tout le matériel nécessaire. Si un matériel spécifique est requis, nous vous en informons à l'avance."
+            },
+            {
+                "q": "Peut-on annuler ou reporter un rendez-vous ?",
+                "a": "Oui, vous pouvez annuler ou reporter sans frais jusqu'à 2 heures avant l'intervention prévue."
+            }
+        ]
+    },
+    "about_milestones": {
+        "tag": "Notre parcours",
+        "title": "Les étapes clés de notre croissance",
+        "subtitle": "De l'idée à la réalisation, découvrez notre évolution",
+        "items": [
+            {
+                "year": "2020",
+                "title": "Création d'Allo Infirmier",
+                "desc": "Lancement de l'agence de coordination de soins infirmiers à domicile à Rabat."
+            },
+            {
+                "year": "2021",
+                "title": "50+ infirmiers partenaires",
+                "desc": "Constitution d'un réseau de plus de 50 infirmiers diplômés et vérifiés."
+            },
+            {
+                "year": "2023",
+                "title": "Expansion régionale",
+                "desc": "Extension de notre couverture à Salé, Témara, Skhirat et communes environnantes."
+            },
+            {
+                "year": "2025",
+                "title": "Plateforme digitale",
+                "desc": "Lancement de notre plateforme en ligne pour simplifier les demandes de soins."
+            }
+        ]
+    },
+    "about_cta": {
+        "title": "Prêt à bénéficier de soins chez vous ?",
+        "subtitle": "Faites confiance à Allo Infirmier pour des soins professionnels, rapides et sécurisés, directement à votre domicile."
+    },
+    "contact_areas": {
+        "tag": "Zones d'intervention",
+        "title": "Nous couvrons votre quartier",
+        "subtitle": "Infirmiers disponibles dans les principales zones de Rabat et Salé",
+        "items": {
+            "rabat": {
+                "name": "Rabat Centre",
+                "desc": "Hassan, Médina, Océan, Yacoub El Mansour"
+            },
+            "agdal": {
+                "name": "Agdal-Riyad",
+                "desc": "Agdal, Souissi, ambassades"
+            },
+            "sale": {
+                "name": "Salé",
+                "desc": "Tabriquet, Bettana, Sala Al Jadida"
+            },
+            "hayriad": {
+                "name": "Hay Riad",
+                "desc": "Hay Riad, quartier administratif"
+            },
+            "temara": {
+                "name": "Témara",
+                "desc": "Centre, Harhoura, résidentiel"
+            },
+            "skhirat": {
+                "name": "Skhirat",
+                "desc": "Plage, zones résidentielles"
+            }
+        }
+    },
+    "contact_faq": {
+        "tag": "Aide rapide",
+        "title": "Questions fréquentes",
+        "subtitle": "Réponses rapides à vos interrogations",
+        "items": [
+            {
+                "q": "Quel est votre délai de réponse ?",
+                "a": "Nous répondons en moins de 15 minutes par WhatsApp et sous 2 heures par email."
+            },
+            {
+                "q": "Intervenez-vous en dehors de Rabat et Salé ?",
+                "a": "Nous couvrons Rabat, Salé, Agdal, Hay Riad, Témara et Skhirat. Pour d'autres zones, contactez-nous pour vérifier la disponibilité."
+            },
+            {
+                "q": "Le premier contact est-il gratuit ?",
+                "a": "Oui, la consultation initiale par téléphone ou WhatsApp est entièrement gratuite et sans engagement."
+            }
+        ]
+    }
+}

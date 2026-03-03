@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Medical cross background -->
+  <rect x="22" y="4" width="20" height="56" rx="4" fill="#1a3a5c"/>
+  <rect x="4" y="22" width="56" height="20" rx="4" fill="#1a3a5c"/>
+  <!-- Teal accent on cross -->
+  <rect x="34" y="4" width="8" height="56" rx="2" fill="#2bb5a0" opacity="0.7"/>
+  <rect x="4" y="22" width="56" height="8" rx="2" fill="#2bb5a0" opacity="0.5"/>
+  <!-- Phone receiver -->
+  <path d="M22 28c0-2 1.5-4 3.5-4.5 1-.3 2.2.2 2.8 1l1.5 2c.5.7.3 1.7-.3 2.2l-1 .8c-.3.2-.3.6-.1.9l3 4.5c.2.3.6.4.9.2l1-.7c.7-.5 1.6-.3 2.1.3l1.5 2c.6.8.5 2-.2 2.7-1.5 1.5-3.5 2-5.5 1.2C27 38.5 22 33 22 28z" fill="white"/>
+  <!-- Heart shape -->
+  <path d="M38 24c1.2-1.2 3-1.5 4.5-.8 1.5.7 2.2 2.3 1.8 3.8-.3 1-1 2-2 2.8L38 33l-4.3-3.2c-1-.8-1.7-1.8-2-2.8-.4-1.5.3-3.1 1.8-3.8 1.5-.7 3.3-.4 4.5.8z" fill="white" opacity="0.85"/>
+</svg>
