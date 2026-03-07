@@ -13,7 +13,9 @@
 - 🌍 **Trilingual** — Full support for French, English, and Arabic (with RTL layout)
 - 🌙 **Dark / Light Mode** — Theme toggle with saved user preference
 - 📱 **Fully Responsive** — Optimized for desktop, tablet, and mobile
-- 📝 **Online Booking** — Request nursing services via an integrated form (EmailJS)
+- 📝 **Online Booking** — Request nursing services via an integrated form
+- 🗄️ **Supabase Backend** — Bookings stored in a PostgreSQL database via serverless API
+- 📧 **Email Notifications** — Parallel email delivery via EmailJS
 - 💬 **WhatsApp Button** — One-click direct contact via WhatsApp
 - ⚡ **Lazy Loading** — Code-split pages for fast initial load
 - 🔍 **SEO Ready** — Meta tags via `react-helmet-async`
@@ -29,6 +31,8 @@
 | **Routing**    | [React Router v7](https://reactrouter.com/)                               |
 | **i18n**       | [i18next](https://www.i18next.com/) + [react-i18next](https://react.i18next.com/) |
 | **Forms**      | [React Hook Form](https://react-hook-form.com/)                           |
+| **Backend**    | [Supabase](https://supabase.com/) (PostgreSQL)                             |
+| **API**        | [Vercel Serverless Functions](https://vercel.com/docs/functions)           |
 | **Email**      | [EmailJS](https://www.emailjs.com/)                                       |
 | **Icons**      | [React Icons](https://react-icons.github.io/react-icons/)                 |
 | **SEO**        | [react-helmet-async](https://github.com/staylor/react-helmet-async)       |
@@ -40,6 +44,10 @@
 
 ```
 AlloInfimier/
+├── api/                     # Vercel Serverless Functions
+│   ├── _lib/
+│   │   └── supabase.js      # Server-side Supabase client
+│   └── bookings.js          # POST /api/bookings endpoint
 ├── public/
 │   ├── favicon.svg
 │   └── images/              # Logo & static assets
@@ -56,7 +64,7 @@ AlloInfimier/
 │   │   ├── Services.jsx     # Detailed nursing services
 │   │   ├── About.jsx        # About the company & team
 │   │   ├── Contact.jsx      # Contact info & map
-│   │   ├── RequestForm.jsx  # Service booking form (EmailJS)
+│   │   ├── RequestForm.jsx  # Service booking form (Supabase + EmailJS)
 │   │   └── NotFound.jsx     # 404 page
 │   ├── i18n/                # Translations
 │   │   ├── fr.json          # 🇫🇷 French
@@ -94,7 +102,7 @@ npm install
 
 # Copy environment variables
 cp .env.example .env
-# → Fill in your EmailJS credentials in .env
+# → Fill in your EmailJS and Supabase credentials in .env
 ```
 
 ### Development
@@ -114,9 +122,48 @@ npm run preview
 
 ---
 
+## 🗄️ Supabase Setup
+
+Booking requests are stored in a [Supabase](https://supabase.com/) PostgreSQL database via a serverless API route.
+
+1. Create a free project at [supabase.com](https://supabase.com/)
+2. Run the following SQL in the **SQL Editor** to create the bookings table:
+
+```sql
+CREATE TABLE bookings (
+  id          UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  name        TEXT NOT NULL,
+  phone       TEXT NOT NULL,
+  email       TEXT NOT NULL,
+  service     TEXT NOT NULL,
+  address     TEXT NOT NULL,
+  pref_time   TEXT DEFAULT 'morning',
+  message     TEXT,
+  status      TEXT DEFAULT 'new',
+  created_at  TIMESTAMPTZ DEFAULT now()
+);
+
+ALTER TABLE bookings ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Allow public inserts"
+  ON bookings FOR INSERT
+  WITH CHECK (true);
+```
+
+3. Copy your credentials into `.env`:
+
+```env
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+```
+
+> **Note:** The service role key is only used server-side in Vercel API routes — it is never exposed to the browser.
+
+---
+
 ## 📧 EmailJS Setup
 
-This project uses [EmailJS](https://www.emailjs.com/) to send form submissions directly from the browser.
+Email notifications are sent in parallel with Supabase storage via [EmailJS](https://www.emailjs.com/).
 
 1. Create a free account at [emailjs.com](https://www.emailjs.com/)
 2. Create an **Email Service** (e.g., Gmail)
@@ -129,7 +176,7 @@ VITE_EMAILJS_TEMPLATE_ID=your_template_id
 VITE_EMAILJS_PUBLIC_KEY=your_public_key
 ```
 
-> **Note:** For Vercel deployments, add these as Environment Variables in your [Vercel project settings](https://vercel.com/docs/environment-variables).
+> **Note:** For Vercel deployments, add all environment variables in your [Vercel project settings](https://vercel.com/docs/environment-variables).
 
 ---
 
