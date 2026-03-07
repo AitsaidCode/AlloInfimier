@@ -24,10 +24,27 @@ export default function RequestForm() {
 
     const onSubmit = async (data) => {
         setStatus('submitting');
-        try {
-            // Dynamically import emailjs to avoid build issues if keys not set
-            const emailjs = await import('@emailjs/browser');
-            await emailjs.default.send(
+
+        // Run Supabase API and EmailJS in parallel
+        const supabasePromise = fetch('/api/bookings', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: data.name,
+                phone: data.phone,
+                email: data.email,
+                service: data.service,
+                address: data.address,
+                pref_time: data.time || 'morning',
+                message: data.message || null,
+            }),
+        }).then(async (res) => {
+            if (!res.ok) throw new Error('API error');
+            return res.json();
+        });
+
+        const emailPromise = import('@emailjs/browser').then((emailjs) =>
+            emailjs.default.send(
                 EMAILJS_SERVICE_ID,
                 EMAILJS_TEMPLATE_ID,
                 {
@@ -40,16 +57,27 @@ export default function RequestForm() {
                     message: data.message || '—',
                 },
                 EMAILJS_PUBLIC_KEY
-            );
+            )
+        );
+
+        const results = await Promise.allSettled([supabasePromise, emailPromise]);
+        const anySucceeded = results.some((r) => r.status === 'fulfilled');
+
+        results.forEach((r, i) => {
+            if (r.status === 'rejected') {
+                console.error(i === 0 ? 'Supabase error:' : 'EmailJS error:', r.reason);
+            }
+        });
+
+        if (anySucceeded) {
             setStatus('success');
             reset();
-        } catch (err) {
-            console.error('EmailJS error:', err);
-            // Store submission locally as fallback
+        } else {
+            // Both failed — save locally as last resort
             const submissions = JSON.parse(localStorage.getItem('alloinfirmier_requests') || '[]');
             submissions.push({ ...data, submittedAt: new Date().toISOString() });
             localStorage.setItem('alloinfirmier_requests', JSON.stringify(submissions));
-            setStatus('success'); // still show success since data is saved
+            setStatus('error');
         }
     };
 
@@ -96,6 +124,15 @@ export default function RequestForm() {
                                 <p>{t('request.success_msg')}</p>
                                 <button className="btn btn--primary" onClick={() => setStatus('idle')}>
                                     Nouvelle demande
+                                </button>
+                            </div>
+                        ) : status === 'error' ? (
+                            <div className="form-success" style={{ borderColor: 'var(--color-error, #e74c3c)' }}>
+                                <div className="form-success__icon" style={{ color: 'var(--color-error, #e74c3c)' }}><FaExclamationCircle /></div>
+                                <h3>Erreur d'envoi</h3>
+                                <p>Votre demande a été sauvegardée localement. Veuillez réessayer ou nous contacter directement.</p>
+                                <button className="btn btn--primary" onClick={() => setStatus('idle')}>
+                                    Réessayer
                                 </button>
                             </div>
                         ) : (
