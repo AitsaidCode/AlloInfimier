@@ -29,8 +29,7 @@ const whyIcons = {
 };
 
 export default function Home() {
-    const { t, i18n } = useTranslation();
-    const lang = i18n.language;
+    const { t } = useTranslation();
 
     const serviceKeys = ['wound', 'injections', 'surgery', 'elderly', 'accompany', 'concierge'];
     const whyKeys = ['network', 'response', 'multilingual', 'coordination', 'pricing'];

@@ -1,4 +1,5 @@
 import { FaWhatsapp } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 import { WHATSAPP } from '../config';
 import './WhatsAppButton.css';
 const getMessage = (lang) => {
@@ -7,8 +8,9 @@ const getMessage = (lang) => {
     return 'Bonjour, je souhaite me renseigner sur les services Allo Infirmier';
 };
 
-export default function WhatsAppButton({ lang = 'fr' }) {
-    const msg = encodeURIComponent(getMessage(lang));
+export default function WhatsAppButton() {
+    const { i18n } = useTranslation();
+    const msg = encodeURIComponent(getMessage(i18n.language));
     const url = `https://wa.me/${WHATSAPP}?text=${msg}`;
 
     return (

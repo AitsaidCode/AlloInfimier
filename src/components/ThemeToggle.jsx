@@ -3,15 +3,15 @@ import { FaSun, FaMoon } from 'react-icons/fa';
 import './ThemeToggle.css';
 
 export default function ThemeToggle() {
-    const [dark, setDark] = useState(false);
-
-    useEffect(() => {
+    const [dark, setDark] = useState(() => {
         const saved = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const isDark = saved ? saved === 'dark' : prefersDark;
-        setDark(isDark);
-        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-    }, []);
+        return saved ? saved === 'dark' : prefersDark;
+    });
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    }, [dark]);
 
     const toggle = () => {
         const next = !dark;

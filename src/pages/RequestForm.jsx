@@ -6,11 +6,6 @@ import { FaCheckCircle, FaExclamationCircle, FaPhone, FaWhatsapp } from 'react-i
 import { PHONE, WHATSAPP } from '../config';
 import './RequestForm.css';
 
-// EmailJS config — loaded from environment variables (.env)
-const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
 export default function RequestForm() {
     const { t } = useTranslation();
     const [status, setStatus] = useState('idle'); // idle | submitting | success | error
@@ -25,55 +20,28 @@ export default function RequestForm() {
     const onSubmit = async (data) => {
         setStatus('submitting');
 
-        // Run Supabase API and EmailJS in parallel
-        const supabasePromise = fetch('/api/bookings', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                name: data.name,
-                phone: data.phone,
-                email: data.email,
-                service: data.service,
-                address: data.address,
-                pref_time: data.time || 'morning',
-                message: data.message || null,
-            }),
-        }).then(async (res) => {
-            if (!res.ok) throw new Error('API error');
-            return res.json();
-        });
-
-        const emailPromise = import('@emailjs/browser').then((emailjs) =>
-            emailjs.default.send(
-                EMAILJS_SERVICE_ID,
-                EMAILJS_TEMPLATE_ID,
-                {
-                    from_name: data.name,
-                    from_phone: data.phone,
-                    from_email: data.email,
+        try {
+            const res = await fetch('/api/bookings', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: data.name,
+                    phone: data.phone,
+                    email: data.email,
+                    service: data.service,
                     address: data.address,
-                    service_type: data.service,
-                    pref_time: data.time,
-                    message: data.message || '—',
-                },
-                EMAILJS_PUBLIC_KEY
-            )
-        );
+                    pref_time: data.time || 'morning',
+                    message: data.message || null,
+                }),
+            });
 
-        const results = await Promise.allSettled([supabasePromise, emailPromise]);
-        const anySucceeded = results.some((r) => r.status === 'fulfilled');
+            if (!res.ok) throw new Error('API error');
 
-        results.forEach((r, i) => {
-            if (r.status === 'rejected') {
-                console.error(i === 0 ? 'Supabase error:' : 'EmailJS error:', r.reason);
-            }
-        });
-
-        if (anySucceeded) {
             setStatus('success');
             reset();
-        } else {
-            // Both failed — save locally as last resort
+        } catch (err) {
+            console.error('Booking error:', err);
+            // Save locally as fallback
             const submissions = JSON.parse(localStorage.getItem('alloinfirmier_requests') || '[]');
             submissions.push({ ...data, submittedAt: new Date().toISOString() });
             localStorage.setItem('alloinfirmier_requests', JSON.stringify(submissions));
@@ -123,16 +91,16 @@ export default function RequestForm() {
                                 <h3>{t('request.success_title')}</h3>
                                 <p>{t('request.success_msg')}</p>
                                 <button className="btn btn--primary" onClick={() => setStatus('idle')}>
-                                    Nouvelle demande
+                                    {t('request.new_request')}
                                 </button>
                             </div>
                         ) : status === 'error' ? (
                             <div className="form-success" style={{ borderColor: 'var(--color-error, #e74c3c)' }}>
                                 <div className="form-success__icon" style={{ color: 'var(--color-error, #e74c3c)' }}><FaExclamationCircle /></div>
-                                <h3>Erreur d'envoi</h3>
-                                <p>Votre demande a été sauvegardée localement. Veuillez réessayer ou nous contacter directement.</p>
+                                <h3>{t('request.error_title')}</h3>
+                                <p>{t('request.error_msg')}</p>
                                 <button className="btn btn--primary" onClick={() => setStatus('idle')}>
-                                    Réessayer
+                                    {t('request.retry')}
                                 </button>
                             </div>
                         ) : (
@@ -234,7 +202,7 @@ export default function RequestForm() {
                                 </button>
 
                                 <p className="form-privacy">
-                                    🔒 Vos données sont confidentielles et sécurisées. Nous ne les partageons jamais avec des tiers.
+                                    {t('request.privacy')}
                                 </p>
                             </form>
                         )}
@@ -243,11 +211,11 @@ export default function RequestForm() {
                     {/* Sidebar */}
                     <div className="request-sidebar">
                         <div className="sidebar-card">
-                            <h3>Contact direct</h3>
-                            <p>Préférez-vous nous contacter directement ?</p>
+                            <h3>{t('request.sidebar_title')}</h3>
+                            <p>{t('request.sidebar_text')}</p>
                             <div className="sidebar-contact">
                                 <a href={`tel:${PHONE}`} className="btn btn--primary" style={{ width: '100%' }}>
-                                    <FaPhone /> Appeler maintenant
+                                    <FaPhone /> {t('request.sidebar_call')}
                                 </a>
                                 <a
                                     href={`https://wa.me/${WHATSAPP}`}
@@ -262,21 +230,20 @@ export default function RequestForm() {
                         </div>
 
                         <div className="sidebar-card sidebar-card--info">
-                            <h4>📋 Comment ça fonctionne ?</h4>
+                            <h4>{t('request.sidebar_how_title')}</h4>
                             <ol className="sidebar-steps">
-                                <li><strong>1.</strong> Remplissez le formulaire</li>
-                                <li><strong>2.</strong> Nous vous rappelons dans les 30 min</li>
-                                <li><strong>3.</strong> Un infirmier est assigné à votre demande</li>
-                                <li><strong>4.</strong> L'infirmier arrive chez vous</li>
+                                {(t('request.sidebar_steps', { returnObjects: true }) || []).map((step, i) => (
+                                    <li key={i}><strong>{i + 1}.</strong> {step}</li>
+                                ))}
                             </ol>
                         </div>
 
                         <div className="sidebar-card sidebar-card--hours">
-                            <h4>🕐 Horaires d'intervention</h4>
-                            <p>Lundi – Dimanche</p>
-                            <p><strong>8h00 → 21h00</strong></p>
+                            <h4>{t('request.sidebar_hours_title')}</h4>
+                            <p>{t('request.sidebar_hours_days')}</p>
+                            <p><strong>{t('request.sidebar_hours_range')}</strong></p>
                             <div className="badge badge--green" style={{ marginTop: '0.75rem' }}>
-                                Urgences : 24h/24
+                                {t('request.sidebar_urgent')}
                             </div>
                         </div>
                     </div>

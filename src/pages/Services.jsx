@@ -16,42 +16,36 @@ const servicesData = [
         icon: <FaBandAid />,
         color: '#EF4444',
         price: '300',
-        features_fr: ['Pansements simples et complexes', 'Soins de plaies chroniques', 'Ulcères et escarres', 'Suivi cicatrisation post-op'],
     },
     {
         key: 'injections',
         icon: <FaSyringe />,
         color: '#8B5CF6',
         price: '200',
-        features_fr: ['Injections sous-cutanées', 'Injections intramusculaires', 'Perfusions intraveineuses', 'Prise de sang à domicile'],
     },
     {
         key: 'surgery',
         icon: <FaHeartbeat />,
         color: '#10B981',
         price: '400',
-        features_fr: ['Surveillance post-opératoire', 'Changements de pansements', 'Gestion de la douleur', 'Coordination avec le chirurgien'],
     },
     {
         key: 'elderly',
         icon: <FaUserNurse />,
         color: '#F59E0B',
         price: '350',
-        features_fr: ['Aide à la prise de médicaments', 'Surveillance des constantes', 'Soins d\'hygiène assistés', 'Prévention des chutes'],
     },
     {
         key: 'accompany',
         icon: <FaAmbulance />,
         color: '#06B6D4',
         price: '250',
-        features_fr: ['Transport vers consultations', 'Accompagnement hospitalier', 'Soutien lors d\'examens', 'Traduction médicale'],
     },
     {
         key: 'concierge',
         icon: <FaStar />,
         color: '#1A56DB',
         price: '500',
-        features_fr: ['Coordination multi-spécialistes', 'Prise de RDV médicaux', 'Gestion du dossier médical', 'Suivi personnalisé 24/7'],
     },
 ];
 
@@ -94,20 +88,20 @@ export default function Services() {
                                     <div>
                                         <h3 className="svc-detail-card__title">{t(`services.items.${svc.key}.title`)}</h3>
                                         <div className="svc-detail-card__price">
-                                            à partir de <strong>{svc.price} MAD</strong>
+                                            {t('services.price_from')} <strong>{svc.price} MAD</strong>
                                         </div>
                                     </div>
                                 </div>
                                 <p className="svc-detail-card__desc">{t(`services.items.${svc.key}.desc`)}</p>
                                 <ul className="svc-detail-card__features">
-                                    {svc.features_fr.map((f, i) => (
+                                    {(t(`services.items.${svc.key}.features`, { returnObjects: true }) || []).map((f, i) => (
                                         <li key={i}>
                                             <FaCheckCircle className="svc-feature-icon" /> {f}
                                         </li>
                                     ))}
                                 </ul>
                                 <Link to="/request" className="btn btn--primary" style={{ width: '100%', marginTop: 'auto' }}>
-                                    Demander ce service <FaArrowRight />
+                                    {t('services.request_service')} <FaArrowRight />
                                 </Link>
                             </div>
                         ))}
@@ -121,22 +115,22 @@ export default function Services() {
                     <div className="trust-bar">
                         <div className="trust-bar__item">
                             <span className="trust-bar__num">50+</span>
-                            <span className="trust-bar__label">Infirmiers diplômés</span>
+                            <span className="trust-bar__label">{t('services.trust_nurses')}</span>
                         </div>
                         <div className="trust-bar__divider" />
                         <div className="trust-bar__item">
                             <span className="trust-bar__num">&lt;2h</span>
-                            <span className="trust-bar__label">Temps de réponse moyen</span>
+                            <span className="trust-bar__label">{t('services.trust_response')}</span>
                         </div>
                         <div className="trust-bar__divider" />
                         <div className="trust-bar__item">
                             <span className="trust-bar__num">7/7</span>
-                            <span className="trust-bar__label">Jours disponibles</span>
+                            <span className="trust-bar__label">{t('services.trust_days')}</span>
                         </div>
                         <div className="trust-bar__divider" />
                         <div className="trust-bar__item">
                             <span className="trust-bar__num">FR·EN·AR</span>
-                            <span className="trust-bar__label">Langues parlées</span>
+                            <span className="trust-bar__label">{t('services.trust_languages')}</span>
                         </div>
                     </div>
                 </div>

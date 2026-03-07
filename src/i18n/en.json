@@ -25,30 +25,72 @@
         "subtitle": "Professional care coordinated and delivered to your home",
         "tag": "What We Offer",
         "cta": "Learn more",
+        "price_from": "Starting from",
+        "request_service": "Request this service",
+        "trust_nurses": "Licensed nurses",
+        "trust_response": "Average response time",
+        "trust_days": "Days available",
+        "trust_languages": "Languages spoken",
         "items": {
             "wound": {
                 "title": "Wound Care",
-                "desc": "Dressings, wound healing and post-operative wound monitoring at home."
+                "desc": "Dressings, wound healing and post-operative wound monitoring at home.",
+                "features": [
+                    "Simple and complex dressings",
+                    "Chronic wound care",
+                    "Ulcers and bedsores",
+                    "Post-op healing follow-up"
+                ]
             },
             "injections": {
                 "title": "Injections & IV",
-                "desc": "Administration of subcutaneous, intramuscular and intravenous injections."
+                "desc": "Administration of subcutaneous, intramuscular and intravenous injections.",
+                "features": [
+                    "Subcutaneous injections",
+                    "Intramuscular injections",
+                    "Intravenous infusions",
+                    "Home blood tests"
+                ]
             },
             "surgery": {
                 "title": "Post-Surgery Follow-up",
-                "desc": "Monitoring and convalescence care after a surgical procedure."
+                "desc": "Monitoring and convalescence care after a surgical procedure.",
+                "features": [
+                    "Post-operative monitoring",
+                    "Dressing changes",
+                    "Pain management",
+                    "Surgeon coordination"
+                ]
             },
             "elderly": {
                 "title": "Elderly Care",
-                "desc": "Personalized support for seniors requiring medical assistance at home."
+                "desc": "Personalized support for seniors requiring medical assistance at home.",
+                "features": [
+                    "Medication management",
+                    "Vital signs monitoring",
+                    "Assisted hygiene care",
+                    "Fall prevention"
+                ]
             },
             "accompany": {
                 "title": "Medical Accompaniment",
-                "desc": "Transport and accompaniment to consultations, examinations or hospitalizations."
+                "desc": "Transport and accompaniment to consultations, examinations or hospitalizations.",
+                "features": [
+                    "Transport to appointments",
+                    "Hospital accompaniment",
+                    "Exam support",
+                    "Medical translation"
+                ]
             },
             "concierge": {
                 "title": "Medical Concierge",
-                "desc": "Complete coordination of your medical needs: doctors, specialists, laboratories."
+                "desc": "Complete coordination of your medical needs: doctors, specialists, laboratories.",
+                "features": [
+                    "Multi-specialist coordination",
+                    "Medical appointments",
+                    "Medical records management",
+                    "24/7 personalized follow-up"
+                ]
             }
         }
     },
@@ -170,7 +212,25 @@
         "submitting": "Submitting...",
         "success_title": "Request Sent!",
         "success_msg": "We have received your request and will contact you very soon.",
-        "error_msg": "An error occurred. Please try again or call us directly.",
+        "new_request": "New request",
+        "error_title": "Submission error",
+        "error_msg": "Your request has been saved locally. Please try again or contact us directly.",
+        "retry": "Try again",
+        "privacy": "🔒 Your data is confidential and secure. We never share it with third parties.",
+        "sidebar_title": "Direct contact",
+        "sidebar_text": "Prefer to contact us directly?",
+        "sidebar_call": "Call now",
+        "sidebar_how_title": "📋 How does it work?",
+        "sidebar_steps": [
+            "Fill in the form",
+            "We call you back within 30 min",
+            "A nurse is assigned to your request",
+            "The nurse arrives at your home"
+        ],
+        "sidebar_hours_title": "🕐 Service hours",
+        "sidebar_hours_days": "Monday – Sunday",
+        "sidebar_hours_range": "8:00am → 9:00pm",
+        "sidebar_urgent": "Emergencies: 24/7",
         "validation": {
             "name_required": "Name is required",
             "phone_required": "Phone is required",
@@ -192,6 +252,15 @@
         "network_text": "Our network consists exclusively of state-certified, verified and experienced nurses. Each practitioner is evaluated according to strict criteria of professionalism, punctuality and quality of care.",
         "quality_title": "Quality & Safety Commitment",
         "quality_text": "Patient safety is our absolute priority. All our practitioners follow current medical protocols and use sterile equipment. We provide follow-up after every intervention.",
+        "values_tag": "Our Values",
+        "values_title": "What Guides Us",
+        "network_tag": "Our Network",
+        "stats_nurses": "Nurses",
+        "stats_cities": "Cities",
+        "stats_languages": "Languages",
+        "quality_badge_certified": "State-licensed nurses",
+        "quality_badge_sterile": "Sterile equipment",
+        "quality_badge_multilingual": "Multilingual service",
         "values": {
             "trust": "Trust",
             "professionalism": "Professionalism",
@@ -212,7 +281,12 @@
         "address": "Rabat, Morocco",
         "map_title": "Find Us",
         "cta_call": "Call Now",
-        "cta_whatsapp": "Message on WhatsApp"
+        "cta_whatsapp": "Message on WhatsApp",
+        "phone_sub": "Tap to call",
+        "whatsapp_sub": "Response in under 15 min",
+        "email_sub": "Response within 2h",
+        "hours_sub": "Emergencies 24/7",
+        "areas_sub": "Rabat · Salé · Agdal · Hay Riad · Témara"
     },
     "notFound": {
         "title": "Page Not Found",

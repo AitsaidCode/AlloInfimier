@@ -2,7 +2,7 @@
 
 **Soins Infirmiers à Domicile — Rabat & Salé**
 
-> Professional home nursing care services platform. Book qualified nurses for at-home medical care in the Rabat-Salé region, Morocco.
+> Professional home nursing care coordination platform. Book qualified nurses for at-home medical care in the Rabat-Salé region, Morocco.
 
 🌐 **Live Site:** [alloinfimier.vercel.app](https://alloinfimier.vercel.app)
 
@@ -15,7 +15,7 @@
 - 📱 **Fully Responsive** — Optimized for desktop, tablet, and mobile
 - 📝 **Online Booking** — Request nursing services via an integrated form
 - 🗄️ **Supabase Backend** — Bookings stored in a PostgreSQL database via serverless API
-- 📧 **Email Notifications** — Parallel email delivery via EmailJS
+- 📧 **Email Notifications** — Instant booking alerts via [Resend](https://resend.com/)
 - 💬 **WhatsApp Button** — One-click direct contact via WhatsApp
 - ⚡ **Lazy Loading** — Code-split pages for fast initial load
 - 🔍 **SEO Ready** — Meta tags via `react-helmet-async`
@@ -32,8 +32,8 @@
 | **i18n**       | [i18next](https://www.i18next.com/) + [react-i18next](https://react.i18next.com/) |
 | **Forms**      | [React Hook Form](https://react-hook-form.com/)                           |
 | **Backend**    | [Supabase](https://supabase.com/) (PostgreSQL)                             |
+| **Email**      | [Resend](https://resend.com/)                                               |
 | **API**        | [Vercel Serverless Functions](https://vercel.com/docs/functions)           |
-| **Email**      | [EmailJS](https://www.emailjs.com/)                                       |
 | **Icons**      | [React Icons](https://react-icons.github.io/react-icons/)                 |
 | **SEO**        | [react-helmet-async](https://github.com/staylor/react-helmet-async)       |
 | **Hosting**    | [Vercel](https://vercel.com/)                                              |
@@ -52,7 +52,6 @@ AlloInfimier/
 │   ├── favicon.svg
 │   └── images/              # Logo & static assets
 ├── src/
-│   ├── assets/              # Imported assets
 │   ├── components/          # Reusable UI components
 │   │   ├── Navbar.jsx       # Navigation bar with language switcher
 │   │   ├── Footer.jsx       # Site footer
@@ -64,7 +63,7 @@ AlloInfimier/
 │   │   ├── Services.jsx     # Detailed nursing services
 │   │   ├── About.jsx        # About the company & team
 │   │   ├── Contact.jsx      # Contact info & map
-│   │   ├── RequestForm.jsx  # Service booking form (Supabase + EmailJS)
+│   │   ├── RequestForm.jsx  # Service booking form (Supabase)
 │   │   └── NotFound.jsx     # 404 page
 │   ├── i18n/                # Translations
 │   │   ├── fr.json          # 🇫🇷 French
@@ -102,7 +101,7 @@ npm install
 
 # Copy environment variables
 cp .env.example .env
-# → Fill in your EmailJS and Supabase credentials in .env
+# → Fill in your Supabase credentials in .env
 ```
 
 ### Development
@@ -161,22 +160,20 @@ SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 
 ---
 
-## 📧 EmailJS Setup
+## 📧 Resend Setup (Email Notifications)
 
-Email notifications are sent in parallel with Supabase storage via [EmailJS](https://www.emailjs.com/).
+When a booking is submitted, the API route sends an email notification via [Resend](https://resend.com/).
 
-1. Create a free account at [emailjs.com](https://www.emailjs.com/)
-2. Create an **Email Service** (e.g., Gmail)
-3. Create an **Email Template**
-4. Copy your credentials into `.env`:
+1. Sign up free at [resend.com](https://resend.com/signup)
+2. Create an **API Key** in the dashboard
+3. Add to `.env`:
 
 ```env
-VITE_EMAILJS_SERVICE_ID=your_service_id
-VITE_EMAILJS_TEMPLATE_ID=your_template_id
-VITE_EMAILJS_PUBLIC_KEY=your_public_key
+RESEND_API_KEY=re_xxxxxxxxxxxx
+NOTIFICATION_EMAIL=your-email@example.com
 ```
 
-> **Note:** For Vercel deployments, add all environment variables in your [Vercel project settings](https://vercel.com/docs/environment-variables).
+> **Note:** On the free tier, emails are sent from `onboarding@resend.dev`. To use a custom sender address (e.g. `noreply@alloinfimier.com`), verify your domain in Resend's dashboard.
 
 ---
 
@@ -188,6 +185,8 @@ The project is deployed on **Vercel** with GitHub integration. Every push to the
 # Manual deploy via CLI
 npx vercel deploy --prod
 ```
+
+> **Note:** For Vercel deployments, add all environment variables in your [Vercel project settings](https://vercel.com/docs/environment-variables).
 
 ---
 

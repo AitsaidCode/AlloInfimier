@@ -158,8 +158,8 @@ export default function About() {
             <section className="section section--alt">
                 <div className="container">
                     <div className="section__header">
-                        <span className="section__tag">Nos valeurs</span>
-                        <h2>Ce qui nous guide</h2>
+                        <span className="section__tag">{t('about.values_tag')}</span>
+                        <h2>{t('about.values_title')}</h2>
                     </div>
                     <div className="values-grid">
                         {values.map(({ icon, key, color }) => (
@@ -177,22 +177,22 @@ export default function About() {
                 <div className="container">
                     <div className="about-detail-grid">
                         <div className="about-detail-text">
-                            <span className="section__tag">Notre réseau</span>
+                            <span className="section__tag">{t('about.network_tag')}</span>
                             <h2>{t('about.network_title')}</h2>
                             <p>{t('about.network_text')}</p>
 
                             <div className="about-stats-row">
                                 <div className="about-stat">
                                     <div className="about-stat__num">50+</div>
-                                    <div className="about-stat__label">Infirmiers</div>
+                                    <div className="about-stat__label">{t('about.stats_nurses')}</div>
                                 </div>
                                 <div className="about-stat">
                                     <div className="about-stat__num">6</div>
-                                    <div className="about-stat__label">Villes</div>
+                                    <div className="about-stat__label">{t('about.stats_cities')}</div>
                                 </div>
                                 <div className="about-stat">
                                     <div className="about-stat__num">3</div>
-                                    <div className="about-stat__label">Langues</div>
+                                    <div className="about-stat__label">{t('about.stats_languages')}</div>
                                 </div>
                             </div>
                         </div>
@@ -224,9 +224,9 @@ export default function About() {
                             <h2>{t('about.quality_title')}</h2>
                             <p>{t('about.quality_text')}</p>
                             <div className="quality-badges">
-                                <span className="badge badge--blue"><FaAward /> Infirmiers diplômés d'État</span>
-                                <span className="badge badge--green"><FaShieldAlt /> Matériel stérile</span>
-                                <span className="badge badge--blue"><FaGlobe /> Service multilingue</span>
+                                <span className="badge badge--blue"><FaAward /> {t('about.quality_badge_certified')}</span>
+                                <span className="badge badge--green"><FaShieldAlt /> {t('about.quality_badge_sterile')}</span>
+                                <span className="badge badge--blue"><FaGlobe /> {t('about.quality_badge_multilingual')}</span>
                             </div>
                         </div>
                     </div>

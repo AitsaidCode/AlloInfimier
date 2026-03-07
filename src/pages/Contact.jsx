@@ -43,7 +43,7 @@ export default function Contact() {
                             <div className="contact-card__body">
                                 <div className="contact-card__label">{t('contact.phone_label')}</div>
                                 <div className="contact-card__value">{PHONE}</div>
-                                <div className="contact-card__sub">Appuyez pour appeler</div>
+                                <div className="contact-card__sub">{t('contact.phone_sub')}</div>
                             </div>
                             <div className="contact-card__arrow">→</div>
                         </a>
@@ -59,7 +59,7 @@ export default function Contact() {
                             <div className="contact-card__body">
                                 <div className="contact-card__label">{t('contact.whatsapp_label')}</div>
                                 <div className="contact-card__value">WhatsApp</div>
-                                <div className="contact-card__sub">Réponse en moins de 15 min</div>
+                                <div className="contact-card__sub">{t('contact.whatsapp_sub')}</div>
                             </div>
                             <div className="contact-card__arrow">→</div>
                         </a>
@@ -70,7 +70,7 @@ export default function Contact() {
                             <div className="contact-card__body">
                                 <div className="contact-card__label">{t('contact.email_label')}</div>
                                 <div className="contact-card__value">{EMAIL}</div>
-                                <div className="contact-card__sub">Réponse sous 2h</div>
+                                <div className="contact-card__sub">{t('contact.email_sub')}</div>
                             </div>
                             <div className="contact-card__arrow">→</div>
                         </a>
@@ -81,7 +81,7 @@ export default function Contact() {
                             <div className="contact-card__body">
                                 <div className="contact-card__label">{t('contact.hours_label')}</div>
                                 <div className="contact-card__value">{t('contact.hours')}</div>
-                                <div className="contact-card__sub">Urgences 24h/24</div>
+                                <div className="contact-card__sub">{t('contact.hours_sub')}</div>
                             </div>
                         </div>
 
@@ -91,7 +91,7 @@ export default function Contact() {
                             <div className="contact-card__body">
                                 <div className="contact-card__label">{t('contact.address_label')}</div>
                                 <div className="contact-card__value">{t('contact.address')}</div>
-                                <div className="contact-card__sub">Rabat · Salé · Agdal · Hay Riad · Témara</div>
+                                <div className="contact-card__sub">{t('contact.areas_sub')}</div>
                             </div>
                         </div>
                     </div>

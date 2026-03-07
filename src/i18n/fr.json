@@ -25,30 +25,72 @@
         "subtitle": "Des soins professionnels coordonnés directement chez vous",
         "tag": "Ce que nous proposons",
         "cta": "En savoir plus",
+        "price_from": "à partir de",
+        "request_service": "Demander ce service",
+        "trust_nurses": "Infirmiers diplômés",
+        "trust_response": "Temps de réponse moyen",
+        "trust_days": "Jours disponibles",
+        "trust_languages": "Langues parlées",
         "items": {
             "wound": {
                 "title": "Soins de plaies",
-                "desc": "Pansements, cicatrisation et suivi des plaies postopératoires à domicile."
+                "desc": "Pansements, cicatrisation et suivi des plaies postopératoires à domicile.",
+                "features": [
+                    "Pansements simples et complexes",
+                    "Soins de plaies chroniques",
+                    "Ulcères et escarres",
+                    "Suivi cicatrisation post-op"
+                ]
             },
             "injections": {
                 "title": "Injections & Perfusions",
-                "desc": "Administration d'injections sous-cutanées, intramusculaires et intraveineuses."
+                "desc": "Administration d'injections sous-cutanées, intramusculaires et intraveineuses.",
+                "features": [
+                    "Injections sous-cutanées",
+                    "Injections intramusculaires",
+                    "Perfusions intraveineuses",
+                    "Prise de sang à domicile"
+                ]
             },
             "surgery": {
                 "title": "Suivi post-opératoire",
-                "desc": "Surveillance et soins de convalescence après une intervention chirurgicale."
+                "desc": "Surveillance et soins de convalescence après une intervention chirurgicale.",
+                "features": [
+                    "Surveillance post-opératoire",
+                    "Changements de pansements",
+                    "Gestion de la douleur",
+                    "Coordination avec le chirurgien"
+                ]
             },
             "elderly": {
                 "title": "Soins aux personnes âgées",
-                "desc": "Accompagnement personnalisé pour les seniors nécessitant une assistance médicale."
+                "desc": "Accompagnement personnalisé pour les seniors nécessitant une assistance médicale.",
+                "features": [
+                    "Aide à la prise de médicaments",
+                    "Surveillance des constantes",
+                    "Soins d'hygiène assistés",
+                    "Prévention des chutes"
+                ]
             },
             "accompany": {
                 "title": "Accompagnement médical",
-                "desc": "Transport et accompagnement lors de consultations, examens ou hospitalisations."
+                "desc": "Transport et accompagnement lors de consultations, examens ou hospitalisations.",
+                "features": [
+                    "Transport vers consultations",
+                    "Accompagnement hospitalier",
+                    "Soutien lors d'examens",
+                    "Traduction médicale"
+                ]
             },
             "concierge": {
                 "title": "Conciergerie médicale",
-                "desc": "Coordination complète de vos besoins médicaux : médecins, spécialistes, laboratoires."
+                "desc": "Coordination complète de vos besoins médicaux : médecins, spécialistes, laboratoires.",
+                "features": [
+                    "Coordination multi-spécialistes",
+                    "Prise de RDV médicaux",
+                    "Gestion du dossier médical",
+                    "Suivi personnalisé 24/7"
+                ]
             }
         }
     },
@@ -170,7 +212,25 @@
         "submitting": "Envoi en cours...",
         "success_title": "Demande envoyée !",
         "success_msg": "Nous avons bien reçu votre demande et vous contacterons très prochainement.",
-        "error_msg": "Une erreur est survenue. Veuillez réessayer ou nous appeler directement.",
+        "new_request": "Nouvelle demande",
+        "error_title": "Erreur d'envoi",
+        "error_msg": "Votre demande a été sauvegardée localement. Veuillez réessayer ou nous contacter directement.",
+        "retry": "Réessayer",
+        "privacy": "🔒 Vos données sont confidentielles et sécurisées. Nous ne les partageons jamais avec des tiers.",
+        "sidebar_title": "Contact direct",
+        "sidebar_text": "Préférez-vous nous contacter directement ?",
+        "sidebar_call": "Appeler maintenant",
+        "sidebar_how_title": "📋 Comment ça fonctionne ?",
+        "sidebar_steps": [
+            "Remplissez le formulaire",
+            "Nous vous rappelons dans les 30 min",
+            "Un infirmier est assigné à votre demande",
+            "L'infirmier arrive chez vous"
+        ],
+        "sidebar_hours_title": "🕐 Horaires d'intervention",
+        "sidebar_hours_days": "Lundi – Dimanche",
+        "sidebar_hours_range": "8h00 → 21h00",
+        "sidebar_urgent": "Urgences : 24h/24",
         "validation": {
             "name_required": "Le nom est requis",
             "phone_required": "Le téléphone est requis",
@@ -192,6 +252,15 @@
         "network_text": "Notre réseau est composé exclusivement d'infirmiers diplômés d'État, vérifiés et expérimentés. Chaque praticien est évalué selon des critères stricts de professionnalisme, ponctualité et qualité de soins.",
         "quality_title": "Engagement qualité & sécurité",
         "quality_text": "La sécurité de nos patients est notre priorité absolue. Tous nos intervenants respectent les protocoles médicaux en vigueur et utilisent du matériel stérile. Nous assurons un suivi après chaque intervention.",
+        "values_tag": "Nos valeurs",
+        "values_title": "Ce qui nous guide",
+        "network_tag": "Notre réseau",
+        "stats_nurses": "Infirmiers",
+        "stats_cities": "Villes",
+        "stats_languages": "Langues",
+        "quality_badge_certified": "Infirmiers diplômés d'État",
+        "quality_badge_sterile": "Matériel stérile",
+        "quality_badge_multilingual": "Service multilingue",
         "values": {
             "trust": "Confiance",
             "professionalism": "Professionnalisme",
@@ -212,7 +281,12 @@
         "address": "Rabat, Maroc",
         "map_title": "Nous trouver",
         "cta_call": "Appeler maintenant",
-        "cta_whatsapp": "Écrire sur WhatsApp"
+        "cta_whatsapp": "Écrire sur WhatsApp",
+        "phone_sub": "Appuyez pour appeler",
+        "whatsapp_sub": "Réponse en moins de 15 min",
+        "email_sub": "Réponse sous 2h",
+        "hours_sub": "Urgences 24h/24",
+        "areas_sub": "Rabat · Salé · Agdal · Hay Riad · Témara"
     },
     "notFound": {
         "title": "Page introuvable",

@@ -551,3 +551,16 @@ p {
 [data-theme="dark"] ::-webkit-scrollbar-track {
     background: var(--color-bg);
 }
+
+/* ─── Outline White Button ──────────────────────── */
+.btn--outline-white {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn--outline-white:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #fff;
+    transform: translateY(-2px);
+}
