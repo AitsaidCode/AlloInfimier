@@ -1,4 +1,17 @@
 {
+    "meta": {
+        "home_title": "Allo Infirmier – Home Nursing Care Rabat & Salé",
+        "home_desc": "Allo Infirmier coordinates professional home nursing care in Rabat and Salé. Fast, reliable, multilingual.",
+        "services_title": "Services – Allo Infirmier | Home Care Rabat & Salé",
+        "services_desc": "Explore our home nursing services in Rabat and Salé: wound care, injections, post-op follow-up, elderly care and medical concierge.",
+        "request_title": "Request Care – Allo Infirmier | Rabat & Salé",
+        "request_desc": "Request a home nurse in Rabat or Salé. Simple and fast form. Response within 30 minutes.",
+        "about_title": "About – Allo Infirmier | Home Care Coordination",
+        "about_desc": "Discover Allo Infirmier, a home nursing coordination agency in Rabat and Salé. Our mission, vision and values.",
+        "contact_title": "Contact – Allo Infirmier | Rabat & Salé",
+        "contact_desc": "Contact Allo Infirmier by phone, WhatsApp or email. Service available in Rabat and Salé, 7 days a week.",
+        "notfound_title": "Page Not Found – Allo Infirmier"
+    },
     "nav": {
         "home": "Home",
         "services": "Services",
@@ -214,7 +227,7 @@
         "success_msg": "We have received your request and will contact you very soon.",
         "new_request": "New request",
         "error_title": "Submission error",
-        "error_msg": "Your request has been saved locally. Please try again or contact us directly.",
+        "error_msg": "An error occurred. Please try again or contact us directly by phone or WhatsApp.",
         "retry": "Try again",
         "privacy": "🔒 Your data is confidential and secure. We never share it with third parties.",
         "sidebar_title": "Direct contact",
@@ -234,6 +247,7 @@
         "validation": {
             "name_required": "Name is required",
             "phone_required": "Phone is required",
+            "phone_invalid": "Invalid phone number",
             "email_required": "Email is required",
             "email_invalid": "Invalid email",
             "address_required": "Address is required",
@@ -488,5 +502,39 @@
                 "a": "Yes, the initial consultation by phone or WhatsApp is completely free and without obligation."
             }
         ]
+    },
+    "founder": {
+        "section_tag": "Our Founder",
+        "title": "Founder of Allo Infirmier",
+        "bio": "A seasoned nursing professional with advanced clinical expertise in the operating room and a distinguished academic background in public health and biomedical informatics. Combining hands-on experience at Morocco's leading hospital with international academic excellence to deliver premier healthcare coordination services.",
+        "badge": "Founder",
+        "alt": "Founder",
+        "credentials": [
+            {
+                "year": "2019",
+                "title": "Bachelor's in Nursing Professions and Health Techniques",
+                "sub": "ISPITS, Rabat"
+            },
+            {
+                "year": "2020 – Present",
+                "title": "Central Operating Room Nurse",
+                "sub": "Ibn Sina Hospital, Rabat"
+            },
+            {
+                "year": "2023",
+                "title": "Bachelor's in Education Sciences",
+                "sub": "University of Lille 3, France"
+            },
+            {
+                "year": "2025",
+                "title": "MSc Public Health & Biomedical Informatics",
+                "sub": "Sorbonne University, Paris"
+            }
+        ]
+    },
+    "whatsapp_message": "Hello, I would like to inquire about Allo Infirmier services",
+    "theme": {
+        "to_light": "Light mode",
+        "to_dark": "Dark mode"
     }
 }

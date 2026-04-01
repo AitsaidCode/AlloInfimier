@@ -25,15 +25,20 @@ export default function RequestForm() {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    name: data.name,
-                    phone: data.phone,
-                    email: data.email,
+                    name: data.name.trim(),
+                    phone: data.phone.replace(/[\s\-().]/g, ''),
+                    email: data.email.trim().toLowerCase(),
                     service: data.service,
-                    address: data.address,
+                    address: data.address.trim(),
                     pref_time: data.time || 'morning',
-                    message: data.message || null,
+                    message: data.message?.trim() || null,
                 }),
             });
+
+            if (res.status === 429) {
+                setStatus('error');
+                return;
+            }
 
             if (!res.ok) throw new Error('API error');
 
@@ -41,10 +46,6 @@ export default function RequestForm() {
             reset();
         } catch (err) {
             console.error('Booking error:', err);
-            // Save locally as fallback
-            const submissions = JSON.parse(localStorage.getItem('alloinfirmier_requests') || '[]');
-            submissions.push({ ...data, submittedAt: new Date().toISOString() });
-            localStorage.setItem('alloinfirmier_requests', JSON.stringify(submissions));
             setStatus('error');
         }
     };
@@ -124,7 +125,13 @@ export default function RequestForm() {
                                             type="tel"
                                             className={errors.phone ? 'error' : ''}
                                             placeholder="+212 6XX XXX XXX"
-                                            {...register('phone', { required: t('request.validation.phone_required') })}
+                                            {...register('phone', {
+                                                required: t('request.validation.phone_required'),
+                                                validate: (v) => {
+                                                    const clean = v.replace(/[\s\-().]/g, '');
+                                                    return /^(\+?212|0)[5-7]\d{8}$/.test(clean) || t('request.validation.phone_invalid', 'Numéro de téléphone invalide');
+                                                }
+                                            })}
                                         />
                                         {errors.phone && <span className="form-error"><FaExclamationCircle /> {errors.phone.message}</span>}
                                     </div>

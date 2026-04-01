@@ -1,12 +1,12 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import {
     FaBandAid, FaSyringe, FaHeartbeat, FaUserNurse, FaAmbulance, FaStar,
     FaArrowRight, FaCheckCircle, FaPhone, FaWhatsapp,
-    FaGraduationCap, FaShieldAlt, FaClipboardCheck, FaChevronDown
+    FaGraduationCap, FaShieldAlt, FaClipboardCheck
 } from 'react-icons/fa';
+import FaqAccordion from '../components/FaqAccordion';
 import './Services.css';
 import { PHONE, WHATSAPP } from '../config';
 
@@ -59,13 +59,12 @@ export default function Services() {
     const { t } = useTranslation();
     const guaranteeKeys = ['certified', 'sterile', 'followup'];
     const faqItems = t('services_faq.items', { returnObjects: true });
-    const [openFaq, setOpenFaq] = useState(null);
 
     return (
         <>
             <Helmet>
-                <title>Services – Allo Infirmier | Soins à Domicile Rabat &amp; Salé</title>
-                <meta name="description" content="Découvrez nos services de soins infirmiers à domicile à Rabat et Salé : pansements, injections, suivi post-op, soins seniors et conciergerie médicale." />
+                <title>{t('meta.services_title')}</title>
+                <meta name="description" content={t('meta.services_desc')} />
             </Helmet>
 
             {/* Page Header */}
@@ -164,26 +163,7 @@ export default function Services() {
                         <h2 className="section__title">{t('services_faq.title')}</h2>
                         <p className="section__subtitle">{t('services_faq.subtitle')}</p>
                     </div>
-                    <div className="faq-list">
-                        {Array.isArray(faqItems) && faqItems.map((item, i) => (
-                            <div
-                                key={i}
-                                className={`faq-item${openFaq === i ? ' faq-item--open' : ''}`}
-                            >
-                                <button
-                                    className="faq-item__question"
-                                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                                    aria-expanded={openFaq === i}
-                                >
-                                    <span>{item.q}</span>
-                                    <FaChevronDown className="faq-item__chevron" />
-                                </button>
-                                <div className="faq-item__answer">
-                                    <p>{item.a}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    <FaqAccordion items={faqItems} />
                 </div>
             </section>
 

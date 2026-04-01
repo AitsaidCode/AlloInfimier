@@ -17,63 +17,25 @@ const values = [
     { icon: <FaShieldAlt />, key: 'safety', color: '#10B981' },
 ];
 
-const credentials = [
-    {
-        icon: <FaGraduationCap />,
-        year: '2019',
-        title_fr: 'Licence en Professions Infirmières et Techniques de Santé',
-        title_en: 'Bachelor\'s in Nursing Professions and Health Techniques',
-        title_ar: 'إجازة في مهن التمريض وتقنيات الصحة',
-        sub_fr: 'ISPITS, Rabat',
-        sub_en: 'ISPITS, Rabat',
-        sub_ar: 'المعهد العالي للمهن التمريضية، الرباط',
-    },
-    {
-        icon: <FaHospital />,
-        year: '2020 – Présent',
-        title_fr: 'Infirmier de Bloc Opératoire Central',
-        title_en: 'Central Operating Room Nurse',
-        title_ar: 'ممرض غرفة العمليات المركزية',
-        sub_fr: 'Hôpital Ibn Sina, Rabat',
-        sub_en: 'Ibn Sina Hospital, Rabat',
-        sub_ar: 'مستشفى ابن سينا، الرباط',
-    },
-    {
-        icon: <FaGraduationCap />,
-        year: '2023',
-        title_fr: 'Licence en Sciences de l\'Éducation',
-        title_en: 'Bachelor\'s in Education Sciences',
-        title_ar: 'إجازة في علوم التربية',
-        sub_fr: 'Université de Lille 3, France',
-        sub_en: 'University of Lille 3, France',
-        sub_ar: 'جامعة ليل 3، فرنسا',
-    },
-    {
-        icon: <FaUniversity />,
-        year: '2025',
-        title_fr: 'Master en Santé Publique & Informatique Biomédicale',
-        title_en: 'MSc Public Health & Biomedical Informatics',
-        title_ar: 'ماجستير في الصحة العامة والمعلوماتية الطبية الحيوية',
-        sub_fr: 'Université Sorbonne, Paris',
-        sub_en: 'Sorbonne University, Paris',
-        sub_ar: 'جامعة السوربون، باريس',
-    },
+const credentialIcons = [
+    <FaGraduationCap />,
+    <FaHospital />,
+    <FaGraduationCap />,
+    <FaUniversity />,
 ];
 
 export default function About() {
-    const { t, i18n } = useTranslation();
-    const lang = i18n.language;
+    const { t } = useTranslation();
     const milestones = t('about_milestones.items', { returnObjects: true });
-
-    const getLang = (obj, field) => {
-        return obj[`${field}_${lang}`] || obj[`${field}_fr`] || '';
-    };
+    const credentials = t('founder.credentials', { returnObjects: true });
+    const coverageCities = t('home_coverage.areas', { returnObjects: true });
+    const cityNames = coverageCities ? Object.values(coverageCities).map(c => c.name) : ['Rabat', 'Salé', 'Agdal', 'Hay Riad', 'Témara', 'Skhirat'];
 
     return (
         <>
             <Helmet>
-                <title>À propos – Allo Infirmier | Coordination de Soins à Domicile</title>
-                <meta name="description" content="Découvrez Allo Infirmier, agence de coordination de soins infirmiers à domicile à Rabat et Salé. Notre mission, notre vision et nos valeurs." />
+                <title>{t('meta.about_title')}</title>
+                <meta name="description" content={t('meta.about_desc')} />
             </Helmet>
 
             <div className="page-header">
@@ -92,40 +54,36 @@ export default function About() {
                             <div className="founder-photo-wrapper">
                                 <img
                                     src="/images/founder.jpg"
-                                    alt={lang === 'ar' ? 'المؤسس' : 'Fondateur'}
+                                    alt={t('founder.alt')}
                                     className="founder-photo"
                                     onError={(e) => { e.target.src = '/images/founder.svg'; }}
                                 />
                                 <div className="founder-photo-badge">
                                     <FaStethoscope />
-                                    <span>{lang === 'ar' ? 'مؤسس' : lang === 'en' ? 'Founder' : 'Fondateur'}</span>
+                                    <span>{t('founder.badge')}</span>
                                 </div>
                             </div>
                         </div>
                         <div className="founder-info">
                             <span className="section__tag">
-                                {lang === 'ar' ? 'مؤسسنا' : lang === 'en' ? 'Our Founder' : 'Notre fondateur'}
+                                {t('founder.section_tag')}
                             </span>
                             <h2 className="founder-name">
-                                {lang === 'ar' ? 'مؤسس Allo Infirmier' : lang === 'en' ? 'Founder of Allo Infirmier' : 'Fondateur d\'Allo Infirmier'}
+                                {t('founder.title')}
                             </h2>
                             <p className="founder-bio">
-                                {lang === 'ar'
-                                    ? 'متخصص في التمريض ذو خبرة سريرية متقدمة في غرفة العمليات، وتكوين أكاديمي عالي المستوى في الصحة العامة والمعلوماتية الطبية الحيوية. يجمع بين الخبرة الميدانية في أكبر مستشفيات المغرب والمعرفة الدولية لتقديم خدمات تنسيق صحية متميزة.'
-                                    : lang === 'en'
-                                        ? 'A seasoned nursing professional with advanced clinical expertise in the operating room and a distinguished academic background in public health and biomedical informatics. Combining hands-on experience at Morocco\'s leading hospital with international academic excellence to deliver premier healthcare coordination services.'
-                                        : 'Professionnel infirmier chevronné doté d\'une expertise clinique avancée en bloc opératoire et d\'un parcours académique distingué en santé publique et informatique biomédicale. Il conjugue une expérience terrain au sein du plus grand hôpital du Maroc et un savoir international pour fournir des services de coordination de soins d\'excellence.'}
+                                {t('founder.bio')}
                             </p>
 
                             <div className="founder-credentials">
-                                {credentials.map((c, i) => (
+                                {Array.isArray(credentials) && credentials.map((c, i) => (
                                     <div key={i} className="credential-item">
-                                        <div className="credential-icon">{c.icon}</div>
+                                        <div className="credential-icon">{credentialIcons[i] || <FaGraduationCap />}</div>
                                         <div className="credential-body">
                                             <div className="credential-year">{c.year}</div>
-                                            <div className="credential-title">{getLang(c, 'title')}</div>
-                                            {c.sub_fr && (
-                                                <div className="credential-sub">{getLang(c, 'sub')}</div>
+                                            <div className="credential-title">{c.title}</div>
+                                            {c.sub && (
+                                                <div className="credential-sub">{c.sub}</div>
                                             )}
                                         </div>
                                     </div>
@@ -201,7 +159,7 @@ export default function About() {
                                 <FaUsers />
                                 <span>Allo Infirmier</span>
                             </div>
-                            {['Rabat', 'Salé', 'Agdal', 'Hay Riad', 'Témara', 'Skhirat'].map((city, i) => (
+                            {cityNames.map((city, i) => (
                                 <div
                                     key={city}
                                     className="network-city"

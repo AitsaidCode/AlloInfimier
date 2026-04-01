@@ -13,11 +13,43 @@
   <meta property="og:description"
     content="Coordination professionnelle de soins infirmiers à domicile. Rapide, fiable, multilingue." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://alloinfimier.vercel.app/" />
   <meta property="og:image" content="/images/Logo.jpg" />
+  <link rel="canonical" href="https://alloinfimier.vercel.app/" />
   <title>Allo Infirmier – Soins Infirmiers à Domicile | Rabat & Salé</title>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Allo Infirmier",
+    "description": "Coordination professionnelle de soins infirmiers à domicile à Rabat et Salé, Maroc.",
+    "url": "https://alloinfimier.vercel.app",
+    "logo": "https://alloinfimier.vercel.app/images/Logo.jpg",
+    "telephone": "+212661000000",
+    "email": "contact@alloinfirmier.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Rabat",
+      "addressCountry": "MA"
+    },
+    "areaServed": ["Rabat", "Salé", "Agdal", "Hay Riad", "Témara", "Skhirat"],
+    "openingHours": "Mo-Su 08:00-21:00",
+    "availableLanguage": ["French", "English", "Arabic"],
+    "priceRange": "200-500 MAD"
+  }
+  </script>
 </head>
 
 <body>
+  <noscript>
+    <div style="padding: 2rem; text-align: center; font-family: sans-serif;">
+      <h1>Allo Infirmier</h1>
+      <p>Veuillez activer JavaScript pour utiliser cette application.</p>
+      <p>Please enable JavaScript to use this application.</p>
+    </div>
+  </noscript>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>

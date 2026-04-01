@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
@@ -6,8 +5,9 @@ import {
     FaPhone, FaWhatsapp, FaBandAid, FaSyringe, FaHeartbeat,
     FaUserNurse, FaAmbulance, FaStar, FaNetworkWired,
     FaBolt, FaLanguage, FaHandsHelping, FaTag, FaCheckCircle,
-    FaArrowRight, FaShieldAlt, FaUserMd, FaMapMarkerAlt, FaChevronDown
+    FaArrowRight, FaShieldAlt, FaUserMd, FaMapMarkerAlt
 } from 'react-icons/fa';
+import FaqAccordion from '../components/FaqAccordion';
 import { PHONE, WHATSAPP } from '../config';
 import './Home.css';
 
@@ -38,18 +38,17 @@ export default function Home() {
 
     const testimonials = t('testimonials.items', { returnObjects: true });
     const faqItems = t('home_faq.items', { returnObjects: true });
-    const [openFaq, setOpenFaq] = useState(null);
 
     return (
         <>
             <Helmet>
-                <title>Allo Infirmier – Soins Infirmiers à Domicile Rabat & Salé</title>
-                <meta name="description" content="Allo Infirmier coordonne des soins infirmiers professionnels à domicile à Rabat et Salé. Rapide, fiable, multilingue." />
+                <title>{t('meta.home_title')}</title>
+                <meta name="description" content={t('meta.home_desc')} />
             </Helmet>
 
             {/* ── HERO ─────────────────────────────────────── */}
             <section className="hero">
-                <div className="hero__bg-shapes" aria-hidden>
+                <div className="hero__bg-shapes" aria-hidden="true">
                     <div className="hero__shape hero__shape--1" />
                     <div className="hero__shape hero__shape--2" />
                     <div className="hero__shape hero__shape--3" />
@@ -122,7 +121,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="hero__wave" aria-hidden>
+                <div className="hero__wave" aria-hidden="true">
                     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
                         <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--color-bg)" />
                     </svg>
@@ -273,26 +272,7 @@ export default function Home() {
                         <h2 className="section__title">{t('home_faq.title')}</h2>
                         <p className="section__subtitle">{t('home_faq.subtitle')}</p>
                     </div>
-                    <div className="faq-list">
-                        {Array.isArray(faqItems) && faqItems.map((item, i) => (
-                            <div
-                                key={i}
-                                className={`faq-item${openFaq === i ? ' faq-item--open' : ''}`}
-                            >
-                                <button
-                                    className="faq-item__question"
-                                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                                    aria-expanded={openFaq === i}
-                                >
-                                    <span>{item.q}</span>
-                                    <FaChevronDown className="faq-item__chevron" />
-                                </button>
-                                <div className="faq-item__answer">
-                                    <p>{item.a}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    <FaqAccordion items={faqItems} />
                 </div>
             </section>
 

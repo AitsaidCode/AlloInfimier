@@ -1,7 +1,0 @@
-/* Base resets – globals.css handles design tokens, typography, and theming */
-
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-}

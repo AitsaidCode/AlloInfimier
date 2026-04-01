@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
 import { FaHome, FaPhone, FaStethoscope, FaEnvelope, FaArrowRight } from 'react-icons/fa';
 import { PHONE } from '../config';
 import './NotFound.css';
@@ -15,7 +16,11 @@ export default function NotFound() {
     const { t } = useTranslation();
 
     return (
-        <section className="notfound">
+        <>
+            <Helmet>
+                <title>{t('meta.notfound_title')}</title>
+            </Helmet>
+            <section className="notfound">
             <div className="notfound__content animate-fadeInUp">
                 <div className="notfound__code">404</div>
                 <div className="notfound__divider" />
@@ -46,6 +51,7 @@ export default function NotFound() {
                     </div>
                 </div>
             </div>
-        </section>
+            </section>
+        </>
     );
 }

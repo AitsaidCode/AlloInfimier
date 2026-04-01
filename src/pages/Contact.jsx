@@ -1,28 +1,22 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
-import { FaPhone, FaWhatsapp, FaEnvelope, FaClock, FaMapMarkerAlt, FaChevronDown } from 'react-icons/fa';
+import { FaPhone, FaWhatsapp, FaEnvelope, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
+import FaqAccordion from '../components/FaqAccordion';
+import { getWhatsAppUrl } from '../utils/whatsapp';
 import { PHONE, WHATSAPP, EMAIL } from '../config';
 import './Contact.css';
 
 export default function Contact() {
-    const { t, i18n } = useTranslation();
-    const lang = i18n.language;
+    const { t } = useTranslation();
     const areaKeys = ['rabat', 'agdal', 'sale', 'hayriad', 'temara', 'skhirat'];
     const faqItems = t('contact_faq.items', { returnObjects: true });
-    const [openFaq, setOpenFaq] = useState(null);
-
-    const waMessage = lang === 'ar'
-        ? 'مرحبا، أريد الاستفسار عن خدمات Allo Infirmier'
-        : lang === 'en'
-            ? 'Hello, I would like to inquire about Allo Infirmier services'
-            : 'Bonjour, je souhaite me renseigner sur les services Allo Infirmier';
+    const waUrl = getWhatsAppUrl(WHATSAPP, t);
 
     return (
         <>
             <Helmet>
-                <title>Contact – Allo Infirmier | Rabat &amp; Salé</title>
-                <meta name="description" content="Contactez Allo Infirmier par téléphone, WhatsApp ou email. Service disponible à Rabat et Salé, 7j/7." />
+                <title>{t('meta.contact_title')}</title>
+                <meta name="description" content={t('meta.contact_desc')} />
             </Helmet>
 
             <div className="page-header">
@@ -50,7 +44,7 @@ export default function Contact() {
 
                         {/* WhatsApp */}
                         <a
-                            href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`}
+                            href={waUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="contact-card contact-card--whatsapp"
@@ -124,7 +118,7 @@ export default function Contact() {
                                     <FaPhone /> {t('contact.cta_call')}
                                 </a>
                                 <a
-                                    href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`}
+                                    href={waUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="btn btn--whatsapp btn--lg"
@@ -167,26 +161,7 @@ export default function Contact() {
                         <h2 className="section__title">{t('contact_faq.title')}</h2>
                         <p className="section__subtitle">{t('contact_faq.subtitle')}</p>
                     </div>
-                    <div className="faq-list">
-                        {Array.isArray(faqItems) && faqItems.map((item, i) => (
-                            <div
-                                key={i}
-                                className={`faq-item${openFaq === i ? ' faq-item--open' : ''}`}
-                            >
-                                <button
-                                    className="faq-item__question"
-                                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                                    aria-expanded={openFaq === i}
-                                >
-                                    <span>{item.q}</span>
-                                    <FaChevronDown className="faq-item__chevron" />
-                                </button>
-                                <div className="faq-item__answer">
-                                    <p>{item.a}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    <FaqAccordion items={faqItems} />
                 </div>
             </section>
         </>

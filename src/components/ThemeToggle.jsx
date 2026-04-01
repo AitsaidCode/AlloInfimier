@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import './ThemeToggle.css';
 
 export default function ThemeToggle() {
+    const { t } = useTranslation();
     const [dark, setDark] = useState(() => {
         const saved = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -20,12 +22,14 @@ export default function ThemeToggle() {
         localStorage.setItem('theme', next ? 'dark' : 'light');
     };
 
+    const label = dark ? t('theme.to_light') : t('theme.to_dark');
+
     return (
         <button
             className={`theme-toggle ${dark ? 'theme-toggle--dark' : ''}`}
             onClick={toggle}
-            aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
-            title={dark ? 'Light mode' : 'Dark mode'}
+            aria-label={label}
+            title={label}
         >
             <span className="theme-toggle__icon">
                 {dark ? <FaSun /> : <FaMoon />}

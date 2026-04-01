@@ -1,4 +1,17 @@
 {
+    "meta": {
+        "home_title": "Allo Infirmier – Soins Infirmiers à Domicile Rabat & Salé",
+        "home_desc": "Allo Infirmier coordonne des soins infirmiers professionnels à domicile à Rabat et Salé. Rapide, fiable, multilingue.",
+        "services_title": "Services – Allo Infirmier | Soins à Domicile Rabat & Salé",
+        "services_desc": "Découvrez nos services de soins infirmiers à domicile à Rabat et Salé : pansements, injections, suivi post-op, soins seniors et conciergerie médicale.",
+        "request_title": "Demande de Soin – Allo Infirmier | Rabat & Salé",
+        "request_desc": "Demandez un infirmier à domicile à Rabat ou Salé. Formulaire simple et rapide. Réponse en moins de 30 minutes.",
+        "about_title": "À propos – Allo Infirmier | Coordination de Soins à Domicile",
+        "about_desc": "Découvrez Allo Infirmier, agence de coordination de soins infirmiers à domicile à Rabat et Salé. Notre mission, notre vision et nos valeurs.",
+        "contact_title": "Contact – Allo Infirmier | Rabat & Salé",
+        "contact_desc": "Contactez Allo Infirmier par téléphone, WhatsApp ou email. Service disponible à Rabat et Salé, 7j/7.",
+        "notfound_title": "Page introuvable – Allo Infirmier"
+    },
     "nav": {
         "home": "Accueil",
         "services": "Services",
@@ -214,7 +227,7 @@
         "success_msg": "Nous avons bien reçu votre demande et vous contacterons très prochainement.",
         "new_request": "Nouvelle demande",
         "error_title": "Erreur d'envoi",
-        "error_msg": "Votre demande a été sauvegardée localement. Veuillez réessayer ou nous contacter directement.",
+        "error_msg": "Une erreur s'est produite. Veuillez réessayer ou nous contacter directement par téléphone ou WhatsApp.",
         "retry": "Réessayer",
         "privacy": "🔒 Vos données sont confidentielles et sécurisées. Nous ne les partageons jamais avec des tiers.",
         "sidebar_title": "Contact direct",
@@ -234,6 +247,7 @@
         "validation": {
             "name_required": "Le nom est requis",
             "phone_required": "Le téléphone est requis",
+            "phone_invalid": "Numéro de téléphone invalide",
             "email_required": "L'email est requis",
             "email_invalid": "Email invalide",
             "address_required": "L'adresse est requise",
@@ -488,5 +502,39 @@
                 "a": "Oui, la consultation initiale par téléphone ou WhatsApp est entièrement gratuite et sans engagement."
             }
         ]
+    },
+    "founder": {
+        "section_tag": "Notre fondateur",
+        "title": "Fondateur d'Allo Infirmier",
+        "bio": "Professionnel infirmier chevronné doté d'une expertise clinique avancée en bloc opératoire et d'un parcours académique distingué en santé publique et informatique biomédicale. Il conjugue une expérience terrain au sein du plus grand hôpital du Maroc et un savoir international pour fournir des services de coordination de soins d'excellence.",
+        "badge": "Fondateur",
+        "alt": "Fondateur",
+        "credentials": [
+            {
+                "year": "2019",
+                "title": "Licence en Professions Infirmières et Techniques de Santé",
+                "sub": "ISPITS, Rabat"
+            },
+            {
+                "year": "2020 – Présent",
+                "title": "Infirmier de Bloc Opératoire Central",
+                "sub": "Hôpital Ibn Sina, Rabat"
+            },
+            {
+                "year": "2023",
+                "title": "Licence en Sciences de l'Éducation",
+                "sub": "Université de Lille 3, France"
+            },
+            {
+                "year": "2025",
+                "title": "Master en Santé Publique & Informatique Biomédicale",
+                "sub": "Université Sorbonne, Paris"
+            }
+        ]
+    },
+    "whatsapp_message": "Bonjour, je souhaite me renseigner sur les services Allo Infirmier",
+    "theme": {
+        "to_light": "Mode clair",
+        "to_dark": "Mode sombre"
     }
 }
