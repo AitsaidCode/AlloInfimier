@@ -16,15 +16,19 @@
         "home": "Accueil",
         "services": "Services",
         "request": "Demander un infirmier",
-        "about": "À propos",
-        "contact": "Contact"
+        "about": "Qui sommes-nous",
+        "contact": "Contact",
+        "call": "Appelez-nous"
     },
     "hero": {
-        "title": "Allo Infirmier – La santé vient à vous",
-        "subtitle": "Allo Infirmier est une agence de coordination de soins à domicile basée à Rabat et Salé. Nous facilitons l'accès aux soins en mettant en relation patients, familles et infirmiers diplômés, afin d'assurer une prise en charge rapide, fiable et sécurisée, directement chez vous.",
+        "title": "Infirmiers et aides-soignants à domicile partout au Maroc",
+        "subtitle": "Allo Infirmier, spécialiste de la coordination de soins à domicile. +50 infirmiers qualifiés pour les soins médicaux, l'assistance à la mobilité, l'hygiène et le confort. Interventions flexibles de 1h à 24h/24.",
         "cta_primary": "Demander un infirmier",
         "cta_secondary": "Appeler maintenant",
         "badge": "Service disponible 7j/7",
+        "option_continuous": "J'ai besoin d'une aide continue",
+        "option_punctual": "J'ai besoin d'une aide ponctuelle",
+        "option_new": "Nouveau !",
         "stats_nurses": "Infirmiers qualifiés",
         "stats_cities": "Villes desservies",
         "stats_support": "Support client",
@@ -32,6 +36,62 @@
         "trust_fast": "Intervention rapide",
         "trust_multilingual": "FR · EN · AR",
         "whatsapp_response": "Réponse en moins de 15min"
+    },
+    "home_stats": {
+        "families": "Familles accompagnées",
+        "available": "Disponibilité"
+    },
+    "care_pathways": {
+        "title_start": "Quelle est la situation",
+        "title_accent": "de votre proche ?",
+        "subtitle": "Un accompagnement sur mesure, adapté aux besoins spécifiques de chaque patient.",
+        "discover": "Découvrir",
+        "elderly": {
+            "title": "Personnes âgées",
+            "desc": "Assistance complète pour le quotidien : aide à la toilette, aux repas et à la mobilité."
+        },
+        "postop": {
+            "title": "Post-opératoire",
+            "desc": "Soins de confort et suivi médical rigoureux après une intervention chirurgicale."
+        },
+        "chronic": {
+            "title": "Maladies chroniques",
+            "desc": "Accompagnement Alzheimer, Parkinson et pathologies chroniques avec patience et expertise."
+        },
+        "hospital": {
+            "title": "Hospitalisation à domicile",
+            "desc": "Soins médicaux complets à domicile, en lien avec les médecins, pour un suivi sécurisé."
+        }
+    },
+    "callback": {
+        "title": "Besoin d'aide à domicile ?",
+        "subtitle": "Un coordinateur de soins vous rappelle rapidement pour organiser votre prise en charge.",
+        "whatsapp": "Écrire sur WhatsApp"
+    },
+    "services_section": {
+        "title_start": "Nos services de",
+        "title_accent": "soins à domicile",
+        "subtitle": "Allo Infirmier assure l'accompagnement à domicile de votre proche en mobilisant des professionnels qualifiés, sélectionnés et suivis par nos équipes de coordination."
+    },
+    "services_grid": {
+        "items": [
+            {
+                "title": "Soins de plaies",
+                "desc": "Accompagnement bienveillant pour les pansements, cicatrisation et suivi des plaies post-opératoires."
+            },
+            {
+                "title": "Injections & Perfusions",
+                "desc": "Suivi médical rigoureux et soins techniques assurés par des professionnels qualifiés."
+            },
+            {
+                "title": "Rééducation & Mobilité",
+                "desc": "Rééducation personnalisée et exercices de mobilité pour maintenir l'autonomie et le bien-être."
+            }
+        ]
+    },
+    "home_cta": {
+        "title": "Prêt à bénéficier de soins chez vous ?",
+        "subtitle": "Notre équipe est disponible 7j/7 pour organiser votre prise en charge."
     },
     "services": {
         "title": "Nos Services",
@@ -155,6 +215,8 @@
     },
     "testimonials": {
         "title": "Ils nous font confiance",
+        "title_start": "Ce que disent",
+        "title_accent": "les familles accompagnées",
         "subtitle": "La satisfaction de nos patients est notre priorité",
         "tag": "Témoignages",
         "items": [
@@ -188,6 +250,9 @@
         "phone": "Téléphone",
         "email": "Email",
         "whatsapp": "WhatsApp",
+        "who": "Qui sommes-nous",
+        "rights": "Tous droits réservés.",
+        "address": "Rabat, Maroc",
         "cta_title": "Besoin d'un infirmier à domicile ?",
         "cta_subtitle": "Réponse rapide et professionnelle 7j/7"
     },
@@ -337,27 +402,27 @@
         "areas": {
             "rabat": {
                 "name": "Rabat",
-                "desc": "Centre-ville, Agdal, Hassan, Océan, Souissi"
+                "detail": "Centre-ville, Agdal, Hassan, Océan, Souissi"
             },
             "sale": {
                 "name": "Salé",
-                "desc": "Tabriquet, Bettana, Hay Salam, Sala Al Jadida"
+                "detail": "Tabriquet, Bettana, Hay Salam, Sala Al Jadida"
             },
             "agdal": {
                 "name": "Agdal-Riyad",
-                "desc": "Quartier résidentiel, ambassades, cliniques"
+                "detail": "Quartier résidentiel, ambassades, cliniques"
             },
             "hayriad": {
                 "name": "Hay Riad",
-                "desc": "Quartier moderne, villas, résidences"
+                "detail": "Quartier moderne, villas, résidences"
             },
             "temara": {
                 "name": "Témara",
-                "desc": "Harhoura, centre-ville, zones résidentielles"
+                "detail": "Harhoura, centre-ville, zones résidentielles"
             },
             "skhirat": {
                 "name": "Skhirat",
-                "desc": "Plage, zones résidentielles, environs"
+                "detail": "Plage, zones résidentielles, environs"
             }
         }
     },

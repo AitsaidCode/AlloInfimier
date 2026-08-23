@@ -17,7 +17,6 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
-    // Prevent body scroll when mobile menu is open
     useEffect(() => {
         document.body.style.overflow = menuOpen ? 'hidden' : '';
         return () => { document.body.style.overflow = ''; };
@@ -28,112 +27,88 @@ export default function Navbar() {
         setMenuOpen(false);
     };
 
-    const langs = [
-        { code: 'fr', label: 'FR' },
-        { code: 'en', label: 'EN' },
-        { code: 'ar', label: 'AR' },
-    ];
-
-    const navLinks = [
-        { path: '/', label: t('nav.home') },
-        { path: '/services', label: t('nav.services') },
-        { path: '/about', label: t('nav.about') },
-        { path: '/contact', label: t('nav.contact') },
+    const links = [
+        { to: '/', label: t('nav.home') },
+        { to: '/services', label: t('nav.services') },
+        { to: '/about', label: t('nav.about') },
+        { to: '/contact', label: t('nav.contact') },
     ];
 
     return (
-        <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
-            <div className="container navbar__inner">
-                {/* Logo */}
+        <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
+            <div className="navbar__inner">
                 <Link to="/" className="navbar__logo" onClick={() => setMenuOpen(false)}>
-                    <img
-                        src="/images/Logo.jpg"
-                        alt="Allo Infirmier"
-                        className="navbar__logo-img"
-                    />
+                    <img src="/images/Logo.jpg" alt="Allo Infirmier" />
+                    <span className="navbar__brand">Allo Infirmier</span>
                 </Link>
 
-                {/* Desktop Nav */}
-                <nav className="navbar__links">
-                    {navLinks.map(({ path, label }) => (
+                <nav className={`navbar__nav${menuOpen ? ' navbar__nav--open' : ''}`}>
+                    {links.map(({ to, label }) => (
                         <NavLink
-                            key={path}
-                            to={path}
-                            end={path === '/'}
-                            className={({ isActive }) => `navbar__link ${isActive ? 'navbar__link--active' : ''}`}
+                            key={to}
+                            to={to}
+                            className={({ isActive }) =>
+                                `navbar__link${isActive ? ' navbar__link--active' : ''}`
+                            }
+                            onClick={() => setMenuOpen(false)}
+                            end={to === '/'}
                         >
                             {label}
                         </NavLink>
                     ))}
-                </nav>
 
-                {/* Desktop Actions */}
-                <div className="navbar__actions">
-                    <div className="navbar__lang-switcher">
-                        {langs.map(({ code, label }) => (
-                            <button
-                                key={code}
-                                className={`lang-btn ${i18n.language === code ? 'lang-btn--active' : ''}`}
-                                onClick={() => changeLang(code)}
-                            >
-                                {label}
-                            </button>
-                        ))}
-                    </div>
-                    <ThemeToggle />
-                    <a href={`tel:${PHONE}`} className="btn btn--primary btn--sm navbar__cta">
-                        <FaPhone size={12} />
-                        {t('hero.cta_secondary')}
-                    </a>
-                </div>
-
-                {/* Mobile Hamburger */}
-                <button
-                    className="navbar__hamburger"
-                    onClick={() => setMenuOpen(!menuOpen)}
-                    aria-label="Menu"
-                >
-                    {menuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
-                </button>
-            </div>
-
-            {/* Mobile Menu */}
-            {menuOpen && (
-                <div className="navbar__mobile-menu">
-                    {navLinks.map(({ path, label }) => (
-                        <NavLink
-                            key={path}
-                            to={path}
-                            end={path === '/'}
-                            className={({ isActive }) => `navbar__mobile-link ${isActive ? 'navbar__mobile-link--active' : ''}`}
+                    {/* Mobile-only extras */}
+                    <div className="navbar__mobile-extras">
+                        <Link
+                            to="/request"
+                            className="btn btn--primary btn--lg"
                             onClick={() => setMenuOpen(false)}
                         >
-                            {label}
-                        </NavLink>
-                    ))}
-                    <Link
-                        to="/request"
-                        className="btn btn--primary"
-                        onClick={() => setMenuOpen(false)}
-                    >
-                        {t('nav.request')}
-                    </Link>
-                    <div className="navbar__mobile-bottom">
-                        <div className="navbar__mobile-langs">
-                            {langs.map(({ code, label }) => (
+                            {t('nav.request')}
+                        </Link>
+                        <div className="navbar__lang-row">
+                            {['fr', 'en', 'ar'].map(lng => (
                                 <button
-                                    key={code}
-                                    className={`lang-btn ${i18n.language === code ? 'lang-btn--active' : ''}`}
-                                    onClick={() => changeLang(code)}
+                                    key={lng}
+                                    className={`navbar__lang-btn${i18n.language === lng ? ' navbar__lang-btn--active' : ''}`}
+                                    onClick={() => changeLang(lng)}
                                 >
-                                    {label}
+                                    {lng.toUpperCase()}
                                 </button>
                             ))}
                         </div>
                         <ThemeToggle />
                     </div>
+                </nav>
+
+                <div className="navbar__actions">
+                    <div className="navbar__lang-group">
+                        {['fr', 'en', 'ar'].map(lng => (
+                            <button
+                                key={lng}
+                                className={`navbar__lang-btn${i18n.language === lng ? ' navbar__lang-btn--active' : ''}`}
+                                onClick={() => changeLang(lng)}
+                            >
+                                {lng.toUpperCase()}
+                            </button>
+                        ))}
+                    </div>
+                    <ThemeToggle />
+                    <a href={`tel:${PHONE}`} className="btn btn--navy navbar__cta">
+                        <FaPhone /> {t('nav.call')}
+                    </a>
                 </div>
-            )}
+
+                <button
+                    className="navbar__toggle"
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    aria-label="Menu"
+                >
+                    {menuOpen ? <FaTimes /> : <FaBars />}
+                </button>
+            </div>
+
+            {menuOpen && <div className="navbar__overlay" onClick={() => setMenuOpen(false)} />}
         </header>
     );
 }

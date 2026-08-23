@@ -3,41 +3,45 @@ import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import {
     FaPhone, FaWhatsapp, FaBandAid, FaSyringe, FaHeartbeat,
-    FaUserNurse, FaAmbulance, FaStar, FaNetworkWired,
-    FaBolt, FaLanguage, FaHandsHelping, FaTag, FaCheckCircle,
-    FaArrowRight, FaShieldAlt, FaUserMd, FaMapMarkerAlt
+    FaUserNurse, FaAmbulance, FaStar, FaCheckCircle,
+    FaArrowRight, FaShieldAlt, FaClock, FaMapMarkerAlt,
+    FaChevronLeft, FaChevronRight, FaQuoteLeft
 } from 'react-icons/fa';
+import { useState, useRef } from 'react';
 import FaqAccordion from '../components/FaqAccordion';
+import { getWhatsAppUrl } from '../utils/whatsapp';
 import { PHONE, WHATSAPP } from '../config';
 import './Home.css';
 
-const serviceIcons = {
-    wound: <FaBandAid />,
-    injections: <FaSyringe />,
-    surgery: <FaHeartbeat />,
-    elderly: <FaUserNurse />,
-    accompany: <FaAmbulance />,
-    concierge: <FaStar />,
-};
-
-const whyIcons = {
-    network: <FaNetworkWired />,
-    response: <FaBolt />,
-    multilingual: <FaLanguage />,
-    coordination: <FaHandsHelping />,
-    pricing: <FaTag />,
-};
+const serviceIcons = [FaBandAid, FaSyringe, FaHeartbeat, FaUserNurse, FaAmbulance, FaShieldAlt];
+const serviceImages = [
+    '/images/service-wound.png',
+    '/images/service-injection.png',
+    '/images/service-postop.png',
+];
 
 export default function Home() {
     const { t } = useTranslation();
-
-    const serviceKeys = ['wound', 'injections', 'surgery', 'elderly', 'accompany', 'concierge'];
-    const whyKeys = ['network', 'response', 'multilingual', 'coordination', 'pricing'];
-    const stepKeys = ['step1', 'step2', 'step3'];
-    const areaKeys = ['rabat', 'sale', 'agdal', 'hayriad', 'temara', 'skhirat'];
-
+    const waUrl = getWhatsAppUrl(WHATSAPP, t);
+    const services = t('services_grid.items', { returnObjects: true });
     const testimonials = t('testimonials.items', { returnObjects: true });
     const faqItems = t('home_faq.items', { returnObjects: true });
+    const areaKeys = ['rabat', 'agdal', 'sale', 'hayriad', 'temara', 'skhirat'];
+    const carouselRef = useRef(null);
+    const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+    const scrollCarousel = (dir) => {
+        if (carouselRef.current) {
+            carouselRef.current.scrollBy({ left: dir * 320, behavior: 'smooth' });
+        }
+    };
+
+    const carePathways = [
+        { key: 'elderly', icon: FaUserNurse, color: '#E8F5E9' },
+        { key: 'postop', icon: FaHeartbeat, color: '#FDE8E8' },
+        { key: 'chronic', icon: FaShieldAlt, color: '#FFF3E0' },
+        { key: 'hospital', icon: FaAmbulance, color: '#E3F2FD' },
+    ];
 
     return (
         <>
@@ -46,229 +50,211 @@ export default function Home() {
                 <meta name="description" content={t('meta.home_desc')} />
             </Helmet>
 
-            {/* ── HERO ─────────────────────────────────────── */}
+            {/* ── HERO ─────────────────────────────────── */}
             <section className="hero">
-                <div className="hero__bg-shapes" aria-hidden="true">
-                    <div className="hero__shape hero__shape--1" />
-                    <div className="hero__shape hero__shape--2" />
-                    <div className="hero__shape hero__shape--3" />
+                <div className="hero__watermark" aria-hidden="true">
+                    <svg viewBox="0 0 300 300" fill="none">
+                        <path d="M150 30 C70 30 30 100 30 150 C30 220 90 270 150 270 C210 270 270 220 270 150 C270 100 230 30 150 30Z" stroke="currentColor" strokeWidth="8" opacity="0.06" />
+                        <circle cx="150" cy="120" r="30" stroke="currentColor" strokeWidth="6" opacity="0.04" />
+                    </svg>
                 </div>
-
-                <div className="container hero__content">
-                    <div className="hero__text animate-fadeInUp">
-                        <span className="section__tag hero__badge">
-                            <span className="hero__badge-dot" />
-                            {t('hero.badge')}
-                        </span>
+                <div className="container hero__grid">
+                    <div className="hero__content animate-fadeInUp">
                         <h1 className="hero__title">{t('hero.title')}</h1>
                         <p className="hero__subtitle">{t('hero.subtitle')}</p>
 
-                        <div className="hero__ctas">
+                        <div className="hero__option-cards">
+                            <Link to="/request" className="option-card">
+                                <div className="option-card__icon"><FaClock /></div>
+                                <div>
+                                    <strong>24/7</strong>
+                                    <span>{t('hero.option_continuous')}</span>
+                                </div>
+                                <FaArrowRight className="option-card__arrow" />
+                            </Link>
+                            <Link to="/request" className="option-card option-card--accent">
+                                <span className="option-card__badge">{t('hero.option_new')}</span>
+                                <div className="option-card__icon"><FaClock /></div>
+                                <div>
+                                    <strong>+ 1h</strong>
+                                    <span>{t('hero.option_punctual')}</span>
+                                </div>
+                                <FaArrowRight className="option-card__arrow" />
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="hero__image animate-fadeIn">
+                        <img src="/images/hero-nurse.png" alt={t('hero.title')} />
+                    </div>
+                </div>
+            </section>
+
+            {/* ── STATS BAR ────────────────────────────── */}
+            <section className="stats-bar">
+                <div className="container">
+                    <div className="stats-bar__grid">
+                        <div className="stat-item">
+                            <span className="stat-item__num">50+</span>
+                            <span className="stat-item__label">{t('about.stats_nurses')}</span>
+                        </div>
+                        <div className="stat-item">
+                            <span className="stat-item__num">1500+</span>
+                            <span className="stat-item__label">{t('home_stats.families')}</span>
+                        </div>
+                        <div className="stat-item">
+                            <span className="stat-item__num">6</span>
+                            <span className="stat-item__label">{t('about.stats_cities')}</span>
+                        </div>
+                        <div className="stat-item">
+                            <span className="stat-item__num">24/7</span>
+                            <span className="stat-item__label">{t('home_stats.available')}</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ── CARE PATHWAYS ────────────────────────── */}
+            <section className="section">
+                <div className="container">
+                    <div className="section__header">
+                        <h2>
+                            {t('care_pathways.title_start')}{' '}
+                            <span className="text-accent">{t('care_pathways.title_accent')}</span>
+                        </h2>
+                        <p className="section__subtitle">{t('care_pathways.subtitle')}</p>
+                    </div>
+                    <div className="pathways-carousel" ref={carouselRef}>
+                        {carePathways.map(({ key, icon: Icon, color }) => (
+                            <div key={key} className="pathway-card" style={{ '--pw-bg': color }}>
+                                <div className="pathway-card__img-wrap">
+                                    <Icon size={48} />
+                                </div>
+                                <h3>{t(`care_pathways.${key}.title`)}</h3>
+                                <p>{t(`care_pathways.${key}.desc`)}</p>
+                                <Link to="/services" className="pathway-card__link">
+                                    {t('care_pathways.discover')} <FaArrowRight />
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="pathways-nav">
+                        <button onClick={() => scrollCarousel(-1)} aria-label="Previous"><FaChevronLeft /></button>
+                        <button onClick={() => scrollCarousel(1)} aria-label="Next"><FaChevronRight /></button>
+                    </div>
+                </div>
+            </section>
+
+            {/* ── CALLBACK FORM ────────────────────────── */}
+            <section className="callback-section">
+                <div className="container">
+                    <div className="callback__inner">
+                        <h2>{t('callback.title')}</h2>
+                        <p>{t('callback.subtitle')}</p>
+                        <div className="callback__actions">
                             <Link to="/request" className="btn btn--white btn--lg">
-                                <FaUserMd />
-                                {t('hero.cta_primary')}
+                                {t('hero.cta_primary')} <FaArrowRight />
                             </Link>
-                            <a href={`tel:${PHONE}`} className="btn btn--outline-white btn--lg">
-                                <FaPhone />
-                                {t('hero.cta_secondary')}
+                            <a href={waUrl} target="_blank" rel="noopener noreferrer" className="btn btn--outline-white btn--lg">
+                                <FaWhatsapp /> {t('callback.whatsapp')}
                             </a>
                         </div>
-
-                        <div className="hero__trust">
-                            <div className="hero__trust-item">
-                                <FaCheckCircle className="hero__trust-icon" />
-                                <span>{t('hero.trust_certified')}</span>
-                            </div>
-                            <div className="hero__trust-item">
-                                <FaCheckCircle className="hero__trust-icon" />
-                                <span>{t('hero.trust_fast')}</span>
-                            </div>
-                            <div className="hero__trust-item">
-                                <FaCheckCircle className="hero__trust-icon" />
-                                <span>{t('hero.trust_multilingual')}</span>
-                            </div>
-                        </div>
                     </div>
+                </div>
+            </section>
 
-                    <div className="hero__stats animate-fadeIn">
-                        <div className="hero__stat-card">
-                            <div className="hero__stat-num">50+</div>
-                            <div className="hero__stat-label">{t('hero.stats_nurses')}</div>
-                        </div>
-                        <div className="hero__stat-card">
-                            <div className="hero__stat-num">6</div>
-                            <div className="hero__stat-label">{t('hero.stats_cities')}</div>
-                        </div>
-                        <div className="hero__stat-card">
-                            <div className="hero__stat-num">7/7</div>
-                            <div className="hero__stat-label">{t('hero.stats_support')}</div>
-                        </div>
-                        <div className="hero__whatsapp-card">
-                            <FaWhatsapp className="hero__wa-icon" />
-                            <div>
-                                <div className="hero__wa-label">WhatsApp</div>
-                                <div className="hero__wa-sub">{t('hero.whatsapp_response')}</div>
-                            </div>
-                            <a
-                                href={`https://wa.me/${WHATSAPP}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="hero__wa-btn"
+            {/* ── SERVICES ─────────────────────────────── */}
+            <section className="section">
+                <div className="container">
+                    <div className="section__header">
+                        <h2>
+                            {t('services_section.title_start')}{' '}
+                            <span className="text-accent">{t('services_section.title_accent')}</span>
+                        </h2>
+                        <p className="section__subtitle">{t('services_section.subtitle')}</p>
+                    </div>
+                    <div className="grid-3">
+                        {Array.isArray(services) && services.slice(0, 3).map((svc, i) => {
+                            const Icon = serviceIcons[i] || FaCheckCircle;
+                            return (
+                                <div key={i} className="card card--img">
+                                    <img src={serviceImages[i]} alt={svc.title} />
+                                    <div className="card__body">
+                                        <h3>{svc.title}</h3>
+                                        <p>{svc.desc}</p>
+                                        <Link to="/services" className="card__link">
+                                            {t('care_pathways.discover')} <FaArrowRight />
+                                        </Link>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            {/* ── TESTIMONIALS ─────────────────────────── */}
+            <section className="testimonials-section">
+                <div className="container">
+                    <div className="section__header">
+                        <h2>
+                            {t('testimonials.title_start')}{' '}
+                            <span className="text-accent">{t('testimonials.title_accent')}</span>
+                        </h2>
+                    </div>
+                    <div className="testimonials__carousel">
+                        {Array.isArray(testimonials) && testimonials.map((item, i) => (
+                            <div
+                                key={i}
+                                className={`testimonial-card${activeTestimonial === i ? ' testimonial-card--active' : ''}`}
                             >
-                                <FaArrowRight />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="hero__wave" aria-hidden="true">
-                    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-                        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--color-bg)" />
-                    </svg>
-                </div>
-            </section>
-
-            {/* ── SERVICES ─────────────────────────────────── */}
-            <section className="section">
-                <div className="container">
-                    <div className="section__header">
-                        <span className="section__tag">{t('services.tag')}</span>
-                        <h2 className="section__title">{t('services.title')}</h2>
-                        <p className="section__subtitle">{t('services.subtitle')}</p>
-                    </div>
-                    <div className="services-grid">
-                        {serviceKeys.map((key) => (
-                            <Link to="/services" key={key} className="service-card">
-                                <div className="service-card__icon">{serviceIcons[key]}</div>
-                                <h3 className="service-card__title">{t(`services.items.${key}.title`)}</h3>
-                                <p className="service-card__desc">{t(`services.items.${key}.desc`)}</p>
-                                <div className="service-card__link">
-                                    {t('services.cta')} <FaArrowRight size={12} />
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ── WHY US ───────────────────────────────────── */}
-            <section className="section section--alt">
-                <div className="container">
-                    <div className="section__header">
-                        <span className="section__tag">{t('why.tag')}</span>
-                        <h2 className="section__title">{t('why.title')}</h2>
-                        <p className="section__subtitle">{t('why.subtitle')}</p>
-                    </div>
-                    <div className="why-grid">
-                        {whyKeys.map((key) => (
-                            <div key={key} className="why-card">
-                                <div className="why-card__icon">{whyIcons[key]}</div>
-                                <div className="why-card__body">
-                                    <h4 className="why-card__title">{t(`why.items.${key}.title`)}</h4>
-                                    <p className="why-card__desc">{t(`why.items.${key}.desc`)}</p>
+                                <FaQuoteLeft className="testimonial-card__quote" />
+                                <p>{item.text}</p>
+                                <div className="testimonial-card__author">
+                                    <div className="testimonial-card__stars">
+                                        {[...Array(5)].map((_, j) => <FaStar key={j} />)}
+                                    </div>
+                                    <strong>{item.name}</strong>
                                 </div>
                             </div>
                         ))}
                     </div>
-                </div>
-            </section>
-
-            {/* ── HOW IT WORKS ─────────────────────────────── */}
-            <section className="section">
-                <div className="container">
-                    <div className="section__header">
-                        <span className="section__tag">{t('how.tag')}</span>
-                        <h2 className="section__title">{t('how.title')}</h2>
-                        <p className="section__subtitle">{t('how.subtitle')}</p>
-                    </div>
-                    <div className="how-steps">
-                        {stepKeys.map((key, i) => (
-                            <div key={key} className="how-step">
-                                <div className="how-step__num">{i + 1}</div>
-                                {i < stepKeys.length - 1 && <div className="how-step__connector" />}
-                                <div className="how-step__card">
-                                    <h3 className="how-step__title">{t(`how.steps.${key}.title`)}</h3>
-                                    <p className="how-step__desc">{t(`how.steps.${key}.desc`)}</p>
-                                </div>
-                            </div>
+                    <div className="testimonials__dots">
+                        {Array.isArray(testimonials) && testimonials.map((_, i) => (
+                            <button
+                                key={i}
+                                className={`dot${activeTestimonial === i ? ' dot--active' : ''}`}
+                                onClick={() => setActiveTestimonial(i)}
+                                aria-label={`Testimonial ${i + 1}`}
+                            />
                         ))}
                     </div>
-                    <div className="how-cta">
-                        <Link to="/request" className="btn btn--primary btn--lg">
-                            {t('hero.cta_primary')}
-                        </Link>
-                        <a
-                            href={`https://wa.me/${WHATSAPP}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="btn btn--whatsapp btn--lg"
-                        >
-                            <FaWhatsapp />
-                            WhatsApp
-                        </a>
-                    </div>
                 </div>
             </section>
 
-            {/* ── COVERAGE AREAS ──────────────────────────── */}
+            {/* ── COVERAGE ─────────────────────────────── */}
             <section className="section section--alt">
                 <div className="container">
                     <div className="section__header">
-                        <span className="section__tag">{t('home_coverage.tag')}</span>
+                        <span className="section__tag"><FaMapMarkerAlt /> {t('home_coverage.tag')}</span>
                         <h2 className="section__title">{t('home_coverage.title')}</h2>
                         <p className="section__subtitle">{t('home_coverage.subtitle')}</p>
                     </div>
-                    <div className="coverage-grid">
-                        {areaKeys.map((key) => (
-                            <div key={key} className="coverage-card">
-                                <div className="coverage-card__icon">
-                                    <FaMapMarkerAlt />
-                                </div>
-                                <div className="coverage-card__body">
-                                    <h4 className="coverage-card__name">{t(`home_coverage.areas.${key}.name`)}</h4>
-                                    <p className="coverage-card__desc">{t(`home_coverage.areas.${key}.desc`)}</p>
-                                </div>
+                    <div className="grid-3">
+                        {areaKeys.map(key => (
+                            <div key={key} className="area-card">
+                                <FaMapMarkerAlt className="area-card__icon" />
+                                <h4>{t(`home_coverage.areas.${key}.name`)}</h4>
+                                <p>{t(`home_coverage.areas.${key}.detail`)}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* ── TESTIMONIALS ─────────────────────────────── */}
-            <section className="section testimonials">
+            {/* ── FAQ ──────────────────────────────────── */}
+            <section className="section">
                 <div className="container">
                     <div className="section__header">
-                        <span className="section__tag">{t('testimonials.tag')}</span>
-                        <h2 className="section__title">{t('testimonials.title')}</h2>
-                        <p className="section__subtitle">{t('testimonials.subtitle')}</p>
-                    </div>
-                    <div className="testimonials-grid">
-                        {Array.isArray(testimonials) && testimonials.map((item, i) => (
-                            <div key={i} className="testimonial-card">
-                                <div className="testimonial-card__stars">
-                                    {[...Array(5)].map((_, s) => <FaStar key={s} className="star-icon" />)}
-                                </div>
-                                <p className="testimonial-card__text">"{item.text}"</p>
-                                <div className="testimonial-card__author">
-                                    <div className="testimonial-card__avatar">
-                                        {item.name.charAt(0)}
-                                    </div>
-                                    <div>
-                                        <div className="testimonial-card__name">{item.name}</div>
-                                        <div className="testimonial-card__role">{item.role}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ── FAQ ─────────────────────────────────────── */}
-            <section className="section section--alt">
-                <div className="container">
-                    <div className="section__header">
-                        <span className="section__tag">{t('home_faq.tag')}</span>
                         <h2 className="section__title">{t('home_faq.title')}</h2>
                         <p className="section__subtitle">{t('home_faq.subtitle')}</p>
                     </div>
@@ -276,18 +262,15 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* ── CTA BANNER ───────────────────────────────── */}
-            <section className="cta-banner">
+            {/* ── BOTTOM CTA ───────────────────────────── */}
+            <section className="bottom-cta">
                 <div className="container">
-                    <div className="cta-banner__inner">
-                        <div className="cta-banner__icon"><FaShieldAlt /></div>
-                        <div className="cta-banner__text">
-                            <h2>{t('cta_banner.title')}</h2>
-                            <p>{t('cta_banner.subtitle')}</p>
-                        </div>
-                        <div className="cta-banner__actions">
+                    <div className="bottom-cta__inner">
+                        <h2>{t('home_cta.title')}</h2>
+                        <p>{t('home_cta.subtitle')}</p>
+                        <div className="bottom-cta__actions">
                             <Link to="/request" className="btn btn--white btn--lg">
-                                {t('hero.cta_primary')}
+                                {t('hero.cta_primary')} <FaArrowRight />
                             </Link>
                             <a href={`tel:${PHONE}`} className="btn btn--outline-white btn--lg">
                                 <FaPhone /> {t('hero.cta_secondary')}
