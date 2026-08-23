@@ -39,11 +39,11 @@ export default function Footer() {
                     <div className="footer__col">
                         <h4 className="footer__heading">{t('nav.services')}</h4>
                         <ul className="footer__links">
-                            <li><Link to="/services">{t('services.wound.title')}</Link></li>
-                            <li><Link to="/services">{t('services.injection.title')}</Link></li>
-                            <li><Link to="/services">{t('services.postop.title')}</Link></li>
-                            <li><Link to="/services">{t('services.chronic.title')}</Link></li>
-                            <li><Link to="/services">{t('services.elderly.title')}</Link></li>
+                            <li><Link to="/services">{t('services.items.wound.title')}</Link></li>
+                            <li><Link to="/services">{t('services.items.injections.title')}</Link></li>
+                            <li><Link to="/services">{t('services.items.surgery.title')}</Link></li>
+                            <li><Link to="/services">{t('services.items.elderly.title')}</Link></li>
+                            <li><Link to="/services">{t('services.items.accompany.title')}</Link></li>
                         </ul>
                     </div>
 

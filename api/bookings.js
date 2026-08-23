@@ -124,7 +124,7 @@ export default async function handler(req, res) {
         try {
             await resend.emails.send({
                 from: 'Allo Infirmier <onboarding@resend.dev>',
-                to: process.env.NOTIFICATION_EMAIL || 'contact@alloinfirmier.com',
+                to: process.env.NOTIFICATION_EMAIL || 'aitsaid.hicham.98@gmail.com',
                 subject: `Nouvelle demande: ${safeService} — ${safeName}`,
                 html: `
                     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
