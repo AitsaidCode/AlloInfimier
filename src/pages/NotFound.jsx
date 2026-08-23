@@ -30,7 +30,7 @@ export default function NotFound() {
                     <Link to="/" className="btn btn--primary">
                         <FaHome /> {t('notFound.back')}
                     </Link>
-                    <a href={`tel:${PHONE}`} className="btn btn--outline">
+                    <a href={`tel:${PHONE.replace(/\s+/g, '')}`} className="btn btn--outline">
                         <FaPhone /> {t('hero.cta_secondary')}
                     </a>
                 </div>

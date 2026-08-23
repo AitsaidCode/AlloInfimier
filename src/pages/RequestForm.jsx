@@ -124,12 +124,12 @@ export default function RequestForm() {
                                             id="phone"
                                             type="tel"
                                             className={errors.phone ? 'error' : ''}
-                                            placeholder="+212 6XX XXX XXX"
+                                            placeholder="+33 7 XX XX XX XX / +212 6XX..."
                                             {...register('phone', {
                                                 required: t('request.validation.phone_required'),
                                                 validate: (v) => {
                                                     const clean = v.replace(/[\s\-().]/g, '');
-                                                    return /^(\+?212|0)[5-7]\d{8}$/.test(clean) || t('request.validation.phone_invalid', 'Numéro de téléphone invalide');
+                                                    return /^(\+?\d{8,15})$/.test(clean) || t('request.validation.phone_invalid', 'Numéro de téléphone invalide');
                                                 }
                                             })}
                                         />
@@ -221,7 +221,7 @@ export default function RequestForm() {
                             <h3>{t('request.sidebar_title')}</h3>
                             <p>{t('request.sidebar_text')}</p>
                             <div className="sidebar-contact">
-                                <a href={`tel:${PHONE}`} className="btn btn--primary" style={{ width: '100%' }}>
+                                <a href={`tel:${PHONE.replace(/\s+/g, '')}`} className="btn btn--primary" style={{ width: '100%' }}>
                                     <FaPhone /> {t('request.sidebar_call')}
                                 </a>
                                 <a

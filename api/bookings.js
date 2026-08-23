@@ -80,9 +80,9 @@ export default async function handler(req, res) {
             });
         }
 
-        // Validate phone format (Moroccan numbers)
+        // Validate phone format (French, Moroccan & International numbers)
         const phoneClean = phone.replace(/[\s\-().]/g, '');
-        if (!/^(\+?212|0)[5-7]\d{8}$/.test(phoneClean)) {
+        if (!/^(\+?\d{8,15})$/.test(phoneClean)) {
             return res.status(400).json({ error: 'Invalid phone number format' });
         }
 

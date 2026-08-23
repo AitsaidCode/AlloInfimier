@@ -272,7 +272,7 @@ export default function Home() {
                             <Link to="/request" className="btn btn--white btn--lg">
                                 {t('hero.cta_primary')} <FaArrowRight />
                             </Link>
-                            <a href={`tel:${PHONE}`} className="btn btn--outline-white btn--lg">
+                            <a href={`tel:${PHONE.replace(/\s+/g, '')}`} className="btn btn--outline-white btn--lg">
                                 <FaPhone /> {t('hero.cta_secondary')}
                             </a>
                         </div>

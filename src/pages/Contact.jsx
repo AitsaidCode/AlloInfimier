@@ -32,7 +32,7 @@ export default function Contact() {
             <section className="section">
                 <div className="container">
                     <div className="contact-grid">
-                        <a href={`tel:${PHONE}`} className="contact-tile">
+                        <a href={`tel:${PHONE.replace(/\s+/g, '')}`} className="contact-tile">
                             <div className="contact-tile__icon contact-tile__icon--phone"><FaPhone /></div>
                             <h3>{t('contact.phone_label')}</h3>
                             <p>{PHONE}</p>

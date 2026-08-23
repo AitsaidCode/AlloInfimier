@@ -63,7 +63,7 @@ export default function Footer() {
                         <ul className="footer__contact">
                             <li>
                                 <FaPhone />
-                                <a href={`tel:${PHONE}`}>{PHONE}</a>
+                                <a href={`tel:${PHONE.replace(/\s+/g, '')}`}>{PHONE}</a>
                             </li>
                             <li>
                                 <FaWhatsapp />

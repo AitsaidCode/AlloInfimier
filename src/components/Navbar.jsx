@@ -94,7 +94,7 @@ export default function Navbar() {
                         ))}
                     </div>
                     <ThemeToggle />
-                    <a href={`tel:${PHONE}`} className="btn btn--navy navbar__cta">
+                    <a href={`tel:${PHONE.replace(/\s+/g, '')}`} className="btn btn--navy navbar__cta">
                         <FaPhone /> {t('nav.call')}
                     </a>
                 </div>
